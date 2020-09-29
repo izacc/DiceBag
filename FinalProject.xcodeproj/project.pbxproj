@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD649252217D200F49BD5 /* AppDelegate.swift */; };
 		C35DD64C252217D200F49BD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD64B252217D200F49BD5 /* SceneDelegate.swift */; };
-		C35DD64E252217D200F49BD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD64D252217D200F49BD5 /* ViewController.swift */; };
+		C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD64D252217D200F49BD5 /* RollViewController.swift */; };
 		C35DD651252217D200F49BD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35DD64F252217D200F49BD5 /* Main.storyboard */; };
 		C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C35DD652252217D200F49BD5 /* FinalProject.xcdatamodeld */; };
 		C35DD656252217D500F49BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35DD655252217D500F49BD5 /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		C35DD646252217D200F49BD5 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35DD649252217D200F49BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C35DD64B252217D200F49BD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C35DD64D252217D200F49BD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C35DD64D252217D200F49BD5 /* RollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollViewController.swift; sourceTree = "<group>"; };
 		C35DD650252217D200F49BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C35DD653252217D200F49BD5 /* FinalProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinalProject.xcdatamodel; sourceTree = "<group>"; };
 		C35DD655252217D500F49BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			children = (
 				C35DD649252217D200F49BD5 /* AppDelegate.swift */,
 				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
-				C35DD64D252217D200F49BD5 /* ViewController.swift */,
+				C35DD64D252217D200F49BD5 /* RollViewController.swift */,
 				C35DD64F252217D200F49BD5 /* Main.storyboard */,
 				C35DD655252217D500F49BD5 /* Assets.xcassets */,
 				C35DD657252217D500F49BD5 /* LaunchScreen.storyboard */,
@@ -261,7 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35DD64E252217D200F49BD5 /* ViewController.swift in Sources */,
+				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
 				C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */,
 				C35DD64C252217D200F49BD5 /* SceneDelegate.swift in Sources */,
