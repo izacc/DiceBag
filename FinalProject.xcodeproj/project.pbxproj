@@ -18,6 +18,7 @@
 		C35DD66F252217D500F49BD5 /* FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD66E252217D500F49BD5 /* FinalProjectUITests.swift */; };
 		C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F872C2523638A00CEB777 /* HistoryViewController.swift */; };
 		C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F87312523639F00CEB777 /* GroupsViewController.swift */; };
+		C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C35DD670252217D500F49BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C38F872C2523638A00CEB777 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		C38F87312523639F00CEB777 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +107,9 @@
 		C35DD648252217D200F49BD5 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				C35DD649252217D200F49BD5 /* AppDelegate.swift */,
-				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
-				C35DD64D252217D200F49BD5 /* RollViewController.swift */,
-				C35DD64F252217D200F49BD5 /* Main.storyboard */,
-				C38F872C2523638A00CEB777 /* HistoryViewController.swift */,
-				C38F87312523639F00CEB777 /* GroupsViewController.swift */,
+				C38F873D252369CB00CEB777 /* Model */,
+				C38F873C2523699900CEB777 /* View */,
+				C38F873B2523697000CEB777 /* Controller */,
 				C35DD655252217D500F49BD5 /* Assets.xcassets */,
 				C35DD657252217D500F49BD5 /* LaunchScreen.storyboard */,
 				C35DD65A252217D500F49BD5 /* Info.plist */,
@@ -135,6 +134,34 @@
 				C35DD670252217D500F49BD5 /* Info.plist */,
 			);
 			path = FinalProjectUITests;
+			sourceTree = "<group>";
+		};
+		C38F873B2523697000CEB777 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C35DD64D252217D200F49BD5 /* RollViewController.swift */,
+				C38F87312523639F00CEB777 /* GroupsViewController.swift */,
+				C38F872C2523638A00CEB777 /* HistoryViewController.swift */,
+				C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C38F873C2523699900CEB777 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C35DD64F252217D200F49BD5 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C38F873D252369CB00CEB777 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
+				C35DD649252217D200F49BD5 /* AppDelegate.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
+				C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
 				C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */,
 				C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */,
