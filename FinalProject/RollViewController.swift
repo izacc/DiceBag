@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RollViewController: UIViewController {
     //creats the dice selection view controller
     let DiceSelectionVc = UIViewController();
     override func viewDidLoad() {

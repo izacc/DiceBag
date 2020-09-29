@@ -27,11 +27,11 @@
             </objects>
             <point key="canvasLocation" x="1451" y="-77"/>
         </scene>
-        <!--Item-->
+        <!--History-->
         <scene sceneID="We6-Xw-AhT">
             <objects>
                 <navigationController id="F5X-Ik-rxW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uQ2-kj-TzP"/>
+                    <tabBarItem key="tabBarItem" title="History" image="clock.arrow.circlepath" catalog="system" id="uQ2-kj-TzP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vYd-q7-DVj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,11 +44,11 @@
             </objects>
             <point key="canvasLocation" x="665" y="630"/>
         </scene>
-        <!--Item-->
+        <!--Groups-->
         <scene sceneID="DdF-46-uRt">
             <objects>
                 <navigationController id="Tic-ye-rCI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Rw4-iI-Vew"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="person.fill" catalog="system" id="Rw4-iI-Vew"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QF9-Z8-0Y1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,7 +64,7 @@
         <!--History-->
         <scene sceneID="L2b-yu-Imw">
             <objects>
-                <viewController title="History" id="672-uL-jaa" sceneMemberID="viewController">
+                <viewController title="History" id="672-uL-jaa" customClass="HistoryViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwU-pO-j62">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,7 @@
         <!--Roll-->
         <scene sceneID="ddY-Jt-lgE">
             <objects>
-                <viewController title="Roll" id="U8H-Sm-h5s" customClass="ViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Roll" id="U8H-Sm-h5s" customClass="RollViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A5c-5u-tvF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,7 +110,7 @@
         <!--Groups-->
         <scene sceneID="k4l-Qg-kQf">
             <objects>
-                <viewController title="Groups" id="hbB-Dw-2PD" sceneMemberID="viewController">
+                <viewController title="Groups" id="hbB-Dw-2PD" customClass="GroupsViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQR-yC-Ouh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,11 +123,11 @@
             </objects>
             <point key="canvasLocation" x="2212" y="1308"/>
         </scene>
-        <!--Item-->
+        <!--Roll-->
         <scene sceneID="VUC-zj-aNs">
             <objects>
                 <navigationController id="rhS-wG-Bcw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TPI-fv-Q7T"/>
+                    <tabBarItem key="tabBarItem" title="Roll" image="die.face.4.fill" catalog="system" id="TPI-fv-Q7T"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p2A-6w-N1K">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -142,6 +142,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
+        <image name="die.face.4.fill" catalog="system" width="128" height="114"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

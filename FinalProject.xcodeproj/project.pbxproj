@@ -16,6 +16,8 @@
 		C35DD659252217D500F49BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35DD657252217D500F49BD5 /* LaunchScreen.storyboard */; };
 		C35DD664252217D500F49BD5 /* FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD663252217D500F49BD5 /* FinalProjectTests.swift */; };
 		C35DD66F252217D500F49BD5 /* FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD66E252217D500F49BD5 /* FinalProjectUITests.swift */; };
+		C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F872C2523638A00CEB777 /* HistoryViewController.swift */; };
+		C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F87312523639F00CEB777 /* GroupsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		C35DD66A252217D500F49BD5 /* FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35DD66E252217D500F49BD5 /* FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectUITests.swift; sourceTree = "<group>"; };
 		C35DD670252217D500F49BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C38F872C2523638A00CEB777 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		C38F87312523639F00CEB777 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
 				C35DD64D252217D200F49BD5 /* RollViewController.swift */,
 				C35DD64F252217D200F49BD5 /* Main.storyboard */,
+				C38F872C2523638A00CEB777 /* HistoryViewController.swift */,
+				C38F87312523639F00CEB777 /* GroupsViewController.swift */,
 				C35DD655252217D500F49BD5 /* Assets.xcassets */,
 				C35DD657252217D500F49BD5 /* LaunchScreen.storyboard */,
 				C35DD65A252217D500F49BD5 /* Info.plist */,
@@ -263,7 +269,9 @@
 			files = (
 				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
+				C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */,
 				C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */,
+				C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */,
 				C35DD64C252217D200F49BD5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
