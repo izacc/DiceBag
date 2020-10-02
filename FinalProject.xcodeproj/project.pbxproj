@@ -19,6 +19,8 @@
 		C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F872C2523638A00CEB777 /* HistoryViewController.swift */; };
 		C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F87312523639F00CEB777 /* GroupsViewController.swift */; };
 		C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */; };
+		C38F877725276BD300CEB777 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F877625276BD300CEB777 /* Dice.swift */; };
+		C38F877C25276F3F00CEB777 /* DiceBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F877B25276F3F00CEB777 /* DiceBag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		C38F872C2523638A00CEB777 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		C38F87312523639F00CEB777 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSelectionViewController.swift; sourceTree = "<group>"; };
+		C38F877625276BD300CEB777 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		C38F877B25276F3F00CEB777 /* DiceBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 			children = (
 				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
 				C35DD649252217D200F49BD5 /* AppDelegate.swift */,
+				C38F877625276BD300CEB777 /* Dice.swift */,
+				C38F877B25276F3F00CEB777 /* DiceBag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C38F877C25276F3F00CEB777 /* DiceBag.swift in Sources */,
 				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
 				C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */,
+				C38F877725276BD300CEB777 /* Dice.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
 				C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */,
 				C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */,

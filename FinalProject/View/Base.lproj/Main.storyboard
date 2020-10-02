@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -115,19 +116,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6a-Wh-TXV">
-                                <rect key="frame" x="175" y="316" width="42" height="21"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yz3-cb-6kJ">
+                                <rect key="frame" x="68" y="92" width="24" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="die.face.1.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="d4DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="nGN-Td-kWe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koF-fs-5wG">
+                                <rect key="frame" x="192" y="84" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="D6"/>
+                                <connections>
+                                    <action selector="d6DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="aee-Mf-x7R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-cF-yEl">
+                                <rect key="frame" x="341" y="88" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="D8"/>
+                                <connections>
+                                    <action selector="d8DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="q8n-vX-f4d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeb-9D-xsv">
+                                <rect key="frame" x="192" y="214" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="D12"/>
+                                <connections>
+                                    <action selector="d12DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="7aH-sH-G8I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF6-Qe-WTF">
+                                <rect key="frame" x="341" y="214" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="D20"/>
+                                <connections>
+                                    <action selector="d20DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="Xe6-7x-Qss"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke4-Qv-Kkv">
+                                <rect key="frame" x="186" y="460" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W1-2I-UhM">
+                                <rect key="frame" x="65" y="214" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="D10"/>
+                                <connections>
+                                    <action selector="d10DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="GEr-B7-MKx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zBn-XS-meG"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="testLabel" destination="t6a-Wh-TXV" id="S7G-Ib-25a"/>
+                        <outlet property="d10Dice" destination="7W1-2I-UhM" id="urc-Dw-LnA"/>
+                        <outlet property="d12Dice" destination="qeb-9D-xsv" id="hOh-ZJ-YMI"/>
+                        <outlet property="d20Dice" destination="WF6-Qe-WTF" id="Icw-h6-Svx"/>
+                        <outlet property="d4Dice" destination="Yz3-cb-6kJ" id="ldg-z2-mjG"/>
+                        <outlet property="d6Dice" destination="koF-fs-5wG" id="0rq-pg-d5h"/>
+                        <outlet property="d8Dice" destination="Kab-cF-yEl" id="Lsj-RZ-KVr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvS-Zw-lQb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -170,8 +230,12 @@
     </scenes>
     <resources>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
+        <image name="die.face.1.fill" catalog="system" width="128" height="114"/>
         <image name="die.face.4.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
