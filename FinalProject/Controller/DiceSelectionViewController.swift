@@ -18,10 +18,11 @@ class DiceSelectionViewController: UIViewController {
     @IBOutlet weak var d12Dice: UIButton!
     @IBOutlet weak var d20Dice: UIButton!
     
+    @IBOutlet weak var diceBagLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        diceBagLabel.isHidden = true;
     }
     
     //MARK: - Button Actions
@@ -102,6 +103,13 @@ class DiceSelectionViewController: UIViewController {
                 break
             }
         }
+        
+        diceBagLabel.isHidden = false;
+        diceBagLabel.text = "\(d4Quantity)x\(DiceBag.diceD4.diceName) " + "\(d6Quantity)x\(DiceBag.diceD6.diceName) " +
+            "\(d8Quantity)x\(DiceBag.diceD8.diceName) " +
+            "\(d10Quantity)x\(DiceBag.diceD10.diceName) " +
+            "\(d12Quantity)x\(DiceBag.diceD12.diceName) " +
+            "\(d20Quantity)x\(DiceBag.diceD20.diceName) "
         
     }
 }
