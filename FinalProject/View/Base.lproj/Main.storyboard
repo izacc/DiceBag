@@ -117,40 +117,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yz3-cb-6kJ">
-                                <rect key="frame" x="68" y="92" width="24" height="22"/>
+                                <rect key="frame" x="65" y="84" width="64" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal">
-                                    <imageReference key="image" image="die.face.1.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="d4" symbolScale="large"/>
                                 </state>
                                 <connections>
                                     <action selector="d4DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="nGN-Td-kWe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koF-fs-5wG">
-                                <rect key="frame" x="192" y="84" width="30" height="30"/>
-                                <state key="normal" title="D6"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koF-fs-5wG">
+                                <rect key="frame" x="175" y="84" width="64" height="64"/>
+                                <state key="normal" image="d6"/>
                                 <connections>
                                     <action selector="d6DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="aee-Mf-x7R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-cF-yEl">
-                                <rect key="frame" x="341" y="88" width="30" height="30"/>
-                                <state key="normal" title="D8"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-cF-yEl">
+                                <rect key="frame" x="307" y="84" width="64" height="64"/>
+                                <state key="normal" image="d8"/>
                                 <connections>
                                     <action selector="d8DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="q8n-vX-f4d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeb-9D-xsv">
-                                <rect key="frame" x="192" y="214" width="30" height="30"/>
-                                <state key="normal" title="D12"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeb-9D-xsv">
+                                <rect key="frame" x="175" y="244" width="64" height="64"/>
+                                <state key="normal" image="d12"/>
                                 <connections>
                                     <action selector="d12DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="7aH-sH-G8I"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF6-Qe-WTF">
-                                <rect key="frame" x="341" y="214" width="30" height="30"/>
-                                <state key="normal" title="D20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF6-Qe-WTF">
+                                <rect key="frame" x="307" y="244" width="64" height="64"/>
+                                <state key="normal" image="d20"/>
                                 <connections>
                                     <action selector="d20DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="Xe6-7x-Qss"/>
                                 </connections>
@@ -161,16 +161,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W1-2I-UhM">
-                                <rect key="frame" x="65" y="214" width="30" height="30"/>
-                                <state key="normal" title="D10"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7W1-2I-UhM">
+                                <rect key="frame" x="65" y="244" width="64" height="64"/>
+                                <state key="normal" image="d10"/>
                                 <connections>
                                     <action selector="d10DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="GEr-B7-MKx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zBn-XS-meG"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.76078431372549016" blue="0.41568627450980389" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Yz3-cb-6kJ" firstAttribute="bottom" secondItem="koF-fs-5wG" secondAttribute="bottom" id="0Dr-Wp-fVO"/>
                             <constraint firstItem="Yz3-cb-6kJ" firstAttribute="centerY" secondItem="Kab-cF-yEl" secondAttribute="centerY" id="4c5-bJ-IL1"/>
@@ -242,7 +242,12 @@
     </scenes>
     <resources>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
-        <image name="die.face.1.fill" catalog="system" width="128" height="114"/>
+        <image name="d10" width="64" height="64"/>
+        <image name="d12" width="64" height="64"/>
+        <image name="d20" width="64" height="64"/>
+        <image name="d4" width="64" height="64"/>
+        <image name="d6" width="64" height="64"/>
+        <image name="d8" width="64" height="64"/>
         <image name="die.face.4.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
@@ -250,9 +255,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
