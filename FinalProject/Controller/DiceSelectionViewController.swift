@@ -18,61 +18,103 @@ class DiceSelectionViewController: UIViewController {
     @IBOutlet weak var d12Dice: UIButton!
     @IBOutlet weak var d20Dice: UIButton!
     
-    @IBOutlet weak var diceBagLabel: UILabel!
+    @IBOutlet weak var d4Label: UILabel!
+    @IBOutlet weak var d6Label: UILabel!
+    @IBOutlet weak var d8Label: UILabel!
+    @IBOutlet weak var d10Label: UILabel!
+    @IBOutlet weak var d12Label: UILabel!
+    @IBOutlet weak var d20Label: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        diceBagLabel.isHidden = true;
+        d4Label.alpha = 0;
+        d6Label.alpha = 0;
+        d8Label.alpha = 0;
+        d10Label.alpha = 0;
+        d12Label.alpha = 0;
+        d20Label.alpha = 0;
+        DiceBag.DiceBag = []
+
     }
     
     //MARK: - Button Actions
     @IBAction func d4DicePressed(_ sender: Any) {
-        //Adds a d4 dice to our dicebag(inventory)
-        DiceBag.DiceBag.append(DiceBag.diceD4)
-        //updates inventory tracker of dicebag
-        DiceInventory()
+        //ensures the user can only roll 6 or less dice at one time
+        if DiceBag.DiceBag.count < 6 {
+            //Adds a d4 dice to our dicebag(inventory)
+            DiceBag.DiceBag.append(DiceBag.diceD4)
+            //updates inventory tracker of dicebag
+            DiceInventory()
+        }
     }
     
     @IBAction func d6DicePressed(_ sender: Any) {
-        //Adds a d6 dice to our dicebag(inventory)
-        DiceBag.DiceBag.append(DiceBag.diceD6)
-        //updates inventory tracker of dicebag
-        DiceInventory()
+        //ensures the user can only roll 6 or less dice at one time
+        if DiceBag.DiceBag.count < 6 {
+            //Adds a d6 dice to our dicebag(inventory)
+            DiceBag.DiceBag.append(DiceBag.diceD6)
+            //updates inventory tracker of dicebag
+            DiceInventory()
+        }
     }
     
     @IBAction func d8DicePressed(_ sender: Any) {
-        //Adds a d8 dice to our dicebag(inventory)
-        DiceBag.DiceBag.append(DiceBag.diceD8)
-        //updates inventory tracker of dicebag
-        DiceInventory()
+        //ensures the user can only roll 6 or less dice at one time
+        if DiceBag.DiceBag.count < 6 {
+            //Adds a d8 dice to our dicebag(inventory)
+            DiceBag.DiceBag.append(DiceBag.diceD8)
+            //updates inventory tracker of dicebag
+            DiceInventory()
+        }
     }
     
     @IBAction func d10DicePressed(_ sender: Any) {
-        //Adds a d10 dice to our dicebag(inventory)
-        DiceBag.DiceBag.append(DiceBag.diceD10)
-        //updates inventory tracker of dicebag
-        DiceInventory()
+        //ensures the user can only roll 6 or less dice at one time
+        if DiceBag.DiceBag.count < 6 {
+            //Adds a d10 dice to our dicebag(inventory)
+            DiceBag.DiceBag.append(DiceBag.diceD10)
+            //updates inventory tracker of dicebag
+            DiceInventory()
+        }
     }
     
     @IBAction func d12DicePressed(_ sender: Any) {
-        //Adds a d12 dice to our dicebag(inventory)
-        DiceBag.DiceBag.append(DiceBag.diceD12)
-        //updates inventory tracker of dicebag
-        DiceInventory()
+        //ensures the user can only roll 6 or less dice at one time
+        if DiceBag.DiceBag.count < 6 {
+            //Adds a d12 dice to our dicebag(inventory)
+            DiceBag.DiceBag.append(DiceBag.diceD12)
+            //updates inventory tracker of dicebag
+            DiceInventory()
+        }
     }
     
     @IBAction func d20DicePressed(_ sender: Any) {
-        //Adds a d20 dice to our dicebag(inventory)
-        DiceBag.DiceBag.append(DiceBag.diceD20)
-        //updates inventory tracker of dicebag
-        DiceInventory()
+        //ensures the user can only roll 6 or less dice at one time
+        if DiceBag.DiceBag.count < 6 {
+            //Adds a d20 dice to our dicebag(inventory)
+            DiceBag.DiceBag.append(DiceBag.diceD20)
+            //updates inventory tracker of dicebag
+            DiceInventory()
+        }
     }
     
+    @IBAction func ClearDiceBag(_ sender: Any) {
+        DiceBag.DiceBag = []
+        d4Label.alpha = 0;
+        d6Label.alpha = 0;
+        d8Label.alpha = 0;
+        d10Label.alpha = 0;
+        d12Label.alpha = 0;
+        d20Label.alpha = 0;
+        
+    }
     
     
     
     //MARK: - Functions
     func DiceInventory(){
+        
         var d4Quantity = 0
         var d6Quantity = 0
         var d8Quantity = 0
@@ -83,33 +125,40 @@ class DiceSelectionViewController: UIViewController {
             switch(die.sides){
             case 4:
                 d4Quantity += 1
+                d4Label.alpha = 1;
                 break
             case 6:
                 d6Quantity += 1
+                d6Label.alpha = 1;
                 break
             case 8:
                 d8Quantity += 1
+                d8Label.alpha = 1;
                 break
             case 10:
                 d10Quantity += 1
+                d10Label.alpha = 1;
                 break
             case 12:
                 d12Quantity += 1
+                d12Label.alpha = 1;
                 break
             case 20:
                 d20Quantity += 1
+                d20Label.alpha = 1;
                 break
             default:
                 break
             }
         }
         
-        diceBagLabel.isHidden = false;
-        diceBagLabel.text = "\(d4Quantity)x\(DiceBag.diceD4.diceName) " + "\(d6Quantity)x\(DiceBag.diceD6.diceName) " +
-            "\(d8Quantity)x\(DiceBag.diceD8.diceName) " +
-            "\(d10Quantity)x\(DiceBag.diceD10.diceName) " +
-            "\(d12Quantity)x\(DiceBag.diceD12.diceName) " +
-            "\(d20Quantity)x\(DiceBag.diceD20.diceName) "
+        
+        d4Label.text = "x\(d4Quantity)"
+        d6Label.text = "x\(d6Quantity)"
+        d8Label.text = "x\(d8Quantity)"
+        d10Label.text = "x\(d10Quantity)"
+        d12Label.text = "x\(d12Quantity)"
+        d20Label.text = "x\(d20Quantity)"
         
     }
 }
