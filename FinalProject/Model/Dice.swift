@@ -8,7 +8,11 @@
 import Foundation
 
 
-class Dice{
+class Dice: Equatable{
+    static func == (lhs: Dice, rhs: Dice) -> Bool {
+        return lhs.sides == rhs.sides && lhs.diceName == rhs.diceName
+    }
+    
     public var sides : Int = 0
     public var diceName : String
     

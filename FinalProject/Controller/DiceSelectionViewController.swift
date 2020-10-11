@@ -25,6 +25,9 @@ class DiceSelectionViewController: UIViewController {
     @IBOutlet weak var d12Label: UILabel!
     @IBOutlet weak var d20Label: UILabel!
     
+    //MARK: - Variables
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,22 @@ class DiceSelectionViewController: UIViewController {
         d12Label.alpha = 0;
         d20Label.alpha = 0;
         DiceBag.DiceBag = []
+        
+        
+        
+        d4Dice.addGestureRecognizer(createLongPress())
+        d6Dice.addGestureRecognizer(createLongPress())
+        d8Dice.addGestureRecognizer(createLongPress())
+        d10Dice.addGestureRecognizer(createLongPress())
+        d12Dice.addGestureRecognizer(createLongPress())
+        d20Dice.addGestureRecognizer(createLongPress())
+        
+      
 
     }
+    
+    
+    
     
     //MARK: - Button Actions
     @IBAction func d4DicePressed(_ sender: Any) {
@@ -108,11 +125,20 @@ class DiceSelectionViewController: UIViewController {
         d12Label.alpha = 0;
         d20Label.alpha = 0;
         
+        
+        
     }
     
     
     
     //MARK: - Functions
+    func createLongPress() -> UILongPressGestureRecognizer {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(removeDice))
+        longPress.minimumPressDuration = 1
+        return longPress
+    }
+    
+    
     func DiceInventory(){
         
         var d4Quantity = 0
@@ -161,4 +187,78 @@ class DiceSelectionViewController: UIViewController {
         d20Label.text = "x\(d20Quantity)"
         
     }
+    
+    @objc func removeDice(sender: UILongPressGestureRecognizer){
+        
+        guard let button = sender.view as? UIButton else { return }
+        
+        //search for specific dice in dicebag and remove it, update visual inventory
+        
+        if sender.state == .ended{
+            //checks the label of the button being pressed
+            switch(button.title(for: .normal)){
+            case "d4Dice":
+                //creates index for firstelement of type diceD4
+                if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD4){
+                    //removes it from the index
+                    DiceBag.DiceBag.remove(at: index)
+                    //checks if the dice bag no longer has any types of that dice
+                    if !DiceBag.DiceBag.contains(DiceBag.diceD4){
+                        //sets alpha of label to 0
+                        d4Label.alpha = 0
+                    }
+                }
+                break
+            case "d6Dice":
+                if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD6){
+                    DiceBag.DiceBag.remove(at: index)
+                    if !DiceBag.DiceBag.contains(DiceBag.diceD6){
+                        d6Label.alpha = 0
+                    }
+                }
+                break
+            case "d8Dice":
+                if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD8){
+                    DiceBag.DiceBag.remove(at: index)
+                    if !DiceBag.DiceBag.contains(DiceBag.diceD8){
+                        d8Label.alpha = 0
+                    }
+                }
+                break
+            case "d10Dice":
+                if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD10){
+                    DiceBag.DiceBag.remove(at: index)
+                    if !DiceBag.DiceBag.contains(DiceBag.diceD10){
+                        d10Label.alpha = 0
+                    }
+                }
+                break
+            case "d12Dice":
+                if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD12){
+                    DiceBag.DiceBag.remove(at: index)
+                    if !DiceBag.DiceBag.contains(DiceBag.diceD12){
+                        d12Label.alpha = 0
+                    }
+                }
+                break
+            case "d20Dice":
+                if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD20){
+                    DiceBag.DiceBag.remove(at: index)
+                    if !DiceBag.DiceBag.contains(DiceBag.diceD20){
+                        d20Label.alpha = 0
+                    }
+                }
+                break
+
+
+            default:
+                break
+            }
+            DiceInventory()
+        }
+        
+    }
+    
+    
+    
 }

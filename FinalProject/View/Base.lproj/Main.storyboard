@@ -125,7 +125,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal">
+                                <state key="normal" title="d4Dice">
                                     <imageReference key="image" image="d4" symbolScale="large"/>
                                 </state>
                                 <connections>
@@ -139,7 +139,7 @@
                                     <constraint firstAttribute="width" secondItem="koF-fs-5wG" secondAttribute="height" multiplier="1:1" id="3xm-OF-To5"/>
                                     <constraint firstAttribute="width" constant="64" id="M6k-oN-KKN"/>
                                 </constraints>
-                                <state key="normal" image="d6"/>
+                                <state key="normal" title="d6Dice" image="d6"/>
                                 <connections>
                                     <action selector="d6DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="aee-Mf-x7R"/>
                                 </connections>
@@ -151,7 +151,7 @@
                                     <constraint firstAttribute="width" secondItem="Kab-cF-yEl" secondAttribute="height" multiplier="1:1" id="aoW-6t-wqP"/>
                                     <constraint firstAttribute="width" constant="64" id="ySY-NX-HqB"/>
                                 </constraints>
-                                <state key="normal" image="d8"/>
+                                <state key="normal" title="d8Dice" image="d8"/>
                                 <connections>
                                     <action selector="d8DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="q8n-vX-f4d"/>
                                 </connections>
@@ -163,7 +163,7 @@
                                     <constraint firstAttribute="height" constant="64" id="7XK-Zu-rBy"/>
                                     <constraint firstAttribute="width" secondItem="qeb-9D-xsv" secondAttribute="height" multiplier="1:1" id="EE8-Hh-6cH"/>
                                 </constraints>
-                                <state key="normal" image="d12"/>
+                                <state key="normal" title="d12Dice" image="d12"/>
                                 <connections>
                                     <action selector="d12DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="7aH-sH-G8I"/>
                                 </connections>
@@ -175,7 +175,7 @@
                                     <constraint firstAttribute="width" secondItem="WF6-Qe-WTF" secondAttribute="height" multiplier="1:1" id="HgU-VX-ixQ"/>
                                     <constraint firstAttribute="height" constant="64" id="k3Q-OG-yag"/>
                                 </constraints>
-                                <state key="normal" image="d20"/>
+                                <state key="normal" title="d20Dice" image="d20"/>
                                 <connections>
                                     <action selector="d20DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="Xe6-7x-Qss"/>
                                 </connections>
@@ -187,7 +187,7 @@
                                     <constraint firstAttribute="width" secondItem="7W1-2I-UhM" secondAttribute="height" multiplier="1:1" id="pUE-DQ-fpU"/>
                                     <constraint firstAttribute="width" constant="64" id="qyj-Qf-BGE"/>
                                 </constraints>
-                                <state key="normal" image="d10"/>
+                                <state key="normal" title="d10Dice" image="d10"/>
                                 <connections>
                                     <action selector="d10DicePressed:" destination="WP5-Jy-r0l" eventType="touchUpInside" id="GEr-B7-MKx"/>
                                 </connections>
