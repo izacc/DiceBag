@@ -250,16 +250,28 @@
                         <outlet property="groupLabel" destination="oT1-Eg-hbe" id="7eu-UL-Ffm"/>
                         <outlet property="rollingDice1" destination="yzo-wN-WRx" id="IAf-Uu-vf2"/>
                         <outlet property="rollingDice1Label" destination="0A7-vg-wlE" id="LZU-qI-hKe"/>
+                        <outlet property="rollingDice1LabelXCons" destination="riM-Ki-Qd5" id="kfC-Cl-HAT"/>
+                        <outlet property="rollingDice1LabelYCons" destination="PYL-yu-KXk" id="Ktf-Z0-xct"/>
                         <outlet property="rollingDice2" destination="mV7-Mn-hz5" id="tcV-Zu-zD6"/>
                         <outlet property="rollingDice2Label" destination="ZSm-Fd-yog" id="V7Y-fb-UJs"/>
+                        <outlet property="rollingDice2LabelXCons" destination="ENb-Fl-uiK" id="iFZ-EM-I7L"/>
+                        <outlet property="rollingDice2LabelYCons" destination="ZME-yJ-wqT" id="2wk-gc-trb"/>
                         <outlet property="rollingDice3" destination="GTZ-cU-zO2" id="P24-gI-5Fq"/>
                         <outlet property="rollingDice3Label" destination="y1Z-Tc-0YF" id="m6V-Wg-OVh"/>
+                        <outlet property="rollingDice3LabelXCons" destination="Db4-nd-JPy" id="G3o-LT-vGM"/>
+                        <outlet property="rollingDice3LabelYCons" destination="P8M-iT-oC3" id="b5z-m1-kNz"/>
                         <outlet property="rollingDice4" destination="QJJ-6X-Enc" id="MFc-UT-dQ5"/>
                         <outlet property="rollingDice4Label" destination="QGS-Vf-BH6" id="L9g-a5-uYx"/>
+                        <outlet property="rollingDice4LabelXCons" destination="4hk-e7-HtA" id="9Hn-Vi-T4x"/>
+                        <outlet property="rollingDice4LabelYCons" destination="PK5-Or-lyd" id="J6M-YV-faw"/>
                         <outlet property="rollingDice5" destination="lQC-H3-BJm" id="Yyh-2D-eOF"/>
                         <outlet property="rollingDice5Label" destination="WKj-kC-SpY" id="lPe-hc-S4U"/>
+                        <outlet property="rollingDice5LabelXCons" destination="Qso-IE-pHL" id="aPO-Bl-VLq"/>
+                        <outlet property="rollingDice5LabelYCons" destination="dGI-IE-vSd" id="RD8-7X-Hix"/>
                         <outlet property="rollingDice6" destination="UWd-Uw-Bnw" id="aMH-Zc-zRy"/>
                         <outlet property="rollingDice6Label" destination="Ptp-mk-JdY" id="PYk-cq-uiF"/>
+                        <outlet property="rollingDice6LabelXCons" destination="dPv-Wy-q31" id="dp3-1f-zFW"/>
+                        <outlet property="rollingDice6LabelYCons" destination="lkT-Va-VLV" id="eg9-N5-WRJ"/>
                         <outlet property="rollingLabel" destination="edg-z7-nfp" id="skh-LR-vGx"/>
                     </connections>
                 </viewController>
