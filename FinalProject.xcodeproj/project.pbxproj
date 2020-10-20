@@ -21,6 +21,11 @@
 		C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */; };
 		C38F877725276BD300CEB777 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F877625276BD300CEB777 /* Dice.swift */; };
 		C38F877C25276F3F00CEB777 /* DiceBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F877B25276F3F00CEB777 /* DiceBag.swift */; };
+		C38F87FF253F460100CEB777 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F87FB253F460100CEB777 /* Group+CoreDataClass.swift */; };
+		C38F8800253F460100CEB777 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F87FC253F460100CEB777 /* Group+CoreDataProperties.swift */; };
+		C38F8809253F48CD00CEB777 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F8808253F48CD00CEB777 /* CoreDataStack.swift */; };
+		C38F880E253F495900CEB777 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F880D253F495900CEB777 /* Groups.swift */; };
+		C38F8821253F4FAB00CEB777 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSelectionViewController.swift; sourceTree = "<group>"; };
 		C38F877625276BD300CEB777 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		C38F877B25276F3F00CEB777 /* DiceBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceBag.swift; sourceTree = "<group>"; };
+		C38F87FB253F460100CEB777 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C38F87FC253F460100CEB777 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C38F8808253F48CD00CEB777 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C38F880D253F495900CEB777 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +157,7 @@
 				C38F87312523639F00CEB777 /* GroupsViewController.swift */,
 				C38F872C2523638A00CEB777 /* HistoryViewController.swift */,
 				C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */,
+				C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,10 +173,14 @@
 		C38F873D252369CB00CEB777 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C38F87FB253F460100CEB777 /* Group+CoreDataClass.swift */,
+				C38F87FC253F460100CEB777 /* Group+CoreDataProperties.swift */,
 				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
 				C35DD649252217D200F49BD5 /* AppDelegate.swift */,
+				C38F880D253F495900CEB777 /* Groups.swift */,
 				C38F877625276BD300CEB777 /* Dice.swift */,
 				C38F877B25276F3F00CEB777 /* DiceBag.swift */,
+				C38F8808253F48CD00CEB777 /* CoreDataStack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,10 +320,15 @@
 				C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */,
 				C38F877725276BD300CEB777 /* Dice.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
+				C38F87FF253F460100CEB777 /* Group+CoreDataClass.swift in Sources */,
+				C38F8809253F48CD00CEB777 /* CoreDataStack.swift in Sources */,
+				C38F880E253F495900CEB777 /* Groups.swift in Sources */,
+				C38F8821253F4FAB00CEB777 /* AddGroupViewController.swift in Sources */,
 				C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */,
 				C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */,
 				C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */,
 				C35DD64C252217D200F49BD5 /* SceneDelegate.swift in Sources */,
+				C38F8800253F460100CEB777 /* Group+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
