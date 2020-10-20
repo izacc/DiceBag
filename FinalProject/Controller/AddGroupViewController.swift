@@ -25,6 +25,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     var coreDataStack: CoreDataStack!
     var didCreatePlayer1: Bool = false
     var lastPlayerTextField: UITextField!
+    var playerNames: [UITextField] = []
     
     
     override func viewDidLoad() {
@@ -37,6 +38,8 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         self.playerName.delegate = self
         self.groupDescription.delegate = self
         self.groupName.delegate = self
+        
+        
     }
     
     //MARK: - ACTIONS
@@ -63,6 +66,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             lastPlayerTextField = newTextField
             //adds to the view
             self.view.addSubview(lastPlayerTextField)
+            playerNames.append(lastPlayerTextField)
             
             playerName.text = ""
             //changes add button top constraint
@@ -101,7 +105,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             lastPlayerTextField = newTextField
             //adds to the view
             self.view.addSubview(lastPlayerTextField)
-            
+            playerNames.append(lastPlayerTextField)
             playerName.text = ""
             
             //changes add button top constraint
@@ -132,11 +136,27 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        let nextTag = textField.tag + 1
+        // Try to find next responder
+        let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder?
+
+        if nextResponder != nil {
+            // Found next responder, so set it
+            nextResponder?.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard
+            textField.resignFirstResponder()
+        }
+
+        return false
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
 
 
 }
