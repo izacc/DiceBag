@@ -9,14 +9,19 @@ import UIKit
 import CoreData
 
 class GroupsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    //MARK: - VARIABLES
     var groupsArray = [Group]()
     var fetchedResultsController: NSFetchedResultsController<Group>?
-    
     lazy var coreDataStack = CoreDataStack(modelName: "FinalProject")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    //MARK: - FUNCTIONS
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addGroup"{
