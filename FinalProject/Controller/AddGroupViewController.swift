@@ -12,7 +12,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - OUTLETS
     @IBOutlet weak var groupName: UITextField!
-    @IBOutlet weak var groupDescription: UITextField!
+    @IBOutlet weak var groupDescription: UITextView!
     @IBOutlet weak var addPlayerButton: UIButton!
     @IBOutlet weak var playerName: UITextField!
     
@@ -30,14 +30,11 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        groupDescription.borderStyle = .roundedRect
-        //makes our plus button round
+        super.viewDidLoad()        //makes our plus button round
         addPlayerButton.layer.cornerRadius = addPlayerButton.frame.height * 0.50
         addPlayerButton.clipsToBounds = true
         
         self.playerName.delegate = self
-        self.groupDescription.delegate = self
         self.groupName.delegate = self
         
         
@@ -88,6 +85,8 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         newGroup.group_name = group_name
         newGroup.desc = groupDescription.text!
         TextFieldTextGrabber(textFields: playerNames, group: newGroup)
+        newGroup.selected = Selected(context: coreDataStack.managedContext)
+        newGroup.selected?.selected = false
         
         //save the context (with the new user)
         coreDataStack.saveContext()

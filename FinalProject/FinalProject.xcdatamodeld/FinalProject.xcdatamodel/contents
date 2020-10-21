@@ -4,13 +4,19 @@
         <attribute name="desc" attributeType="String"/>
         <attribute name="group_name" attributeType="String"/>
         <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="group" inverseEntity="Player"/>
+        <relationship name="selected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Selected" inverseName="group" inverseEntity="Selected"/>
     </entity>
     <entity name="Player" representedClassName="Player" syncable="YES">
         <attribute name="name" attributeType="String"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="player" inverseEntity="Group"/>
     </entity>
+    <entity name="Selected" representedClassName="Selected" syncable="YES">
+        <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="selected" inverseEntity="Group"/>
+    </entity>
     <elements>
-        <element name="Group" positionX="-27" positionY="18" width="128" height="88"/>
+        <element name="Group" positionX="-27" positionY="18" width="128" height="103"/>
         <element name="Player" positionX="27" positionY="99" width="128" height="73"/>
+        <element name="Selected" positionX="0" positionY="72" width="128" height="73"/>
     </elements>
 </model>

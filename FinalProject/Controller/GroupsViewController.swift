@@ -8,6 +8,12 @@
 import UIKit
 import CoreData
 
+class GroupsTableViewCell: UITableViewCell{
+    
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellTitle: UILabel!
+}
+
 class GroupsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     //MARK: - VARIABLES
     var groupsArray = [Group]()
@@ -18,6 +24,8 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     //MARK: - FUNCTIONS
@@ -33,16 +41,19 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
         
     }
 
+    func checkSelected(group: Group){
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchUsers()
+        fetchGroups()
         
         self.tableView.reloadData()
     }
     
-    func fetchUsers() {
+    func fetchGroups() {
         //creates new fetch request
         let fetchRequest: NSFetchRequest<Group> = Group.fetchRequest()
         //alphebetical order by group name
@@ -60,7 +71,11 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
             print("Problem fetching users \(error) : \(error.localizedDescription)")
         }
     }
+    
+   
 }
+
+//MARK: - EXTENSIONS
 
 extension GroupsViewController{
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -91,20 +106,33 @@ extension GroupsViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //find our cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! GroupsTableViewCell
         //find our group
         guard let currentGroup = fetchedResultsController?.object(at: indexPath) else {
             fatalError("Could not fetch the group")
         }
         //populate the cell
-        cell.textLabel?.text = currentGroup.group_name
-        cell.detailTextLabel?.text = "\(currentGroup.desc)"
+        cell.cellTitle.text = currentGroup.group_name
         
         return cell
     }
     
-    
 }
+
+extension GroupsViewController{
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! GroupsTableViewCell
+        guard let groupSelected = fetchedResultsController?.object(at: indexPath) else { return }
+        //find a way to make all other groups unselected
+        groupSelected.selected?.selected = true
+        cell.cellImage.alpha = 1
+      
+        checkSelected(group: groupSelected)
+        
+        
+    }
+}
+
 
 extension GroupsViewController{
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

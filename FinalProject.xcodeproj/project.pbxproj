@@ -28,6 +28,8 @@
 		C38F8821253F4FAB00CEB777 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */; };
 		C38F882725408D3100CEB777 /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */; };
 		C38F882825408D3100CEB777 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */; };
+		C38F882E25409C0D00CEB777 /* Selected+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882C25409C0D00CEB777 /* Selected+CoreDataClass.swift */; };
+		C38F882F25409C0D00CEB777 /* Selected+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882D25409C0D00CEB777 /* Selected+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C38F882C25409C0D00CEB777 /* Selected+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selected+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C38F882D25409C0D00CEB777 /* Selected+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selected+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 		C38F873D252369CB00CEB777 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C38F882C25409C0D00CEB777 /* Selected+CoreDataClass.swift */,
+				C38F882D25409C0D00CEB777 /* Selected+CoreDataProperties.swift */,
 				C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */,
 				C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */,
 				C38F87FB253F460100CEB777 /* Group+CoreDataClass.swift */,
@@ -324,8 +330,10 @@
 				C38F877C25276F3F00CEB777 /* DiceBag.swift in Sources */,
 				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
 				C38F882825408D3100CEB777 /* Player+CoreDataProperties.swift in Sources */,
+				C38F882E25409C0D00CEB777 /* Selected+CoreDataClass.swift in Sources */,
 				C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */,
 				C38F877725276BD300CEB777 /* Dice.swift in Sources */,
+				C38F882F25409C0D00CEB777 /* Selected+CoreDataProperties.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
 				C38F87FF253F460100CEB777 /* Group+CoreDataClass.swift in Sources */,
 				C38F882725408D3100CEB777 /* Player+CoreDataClass.swift in Sources */,
