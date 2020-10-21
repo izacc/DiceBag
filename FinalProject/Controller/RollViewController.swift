@@ -128,6 +128,7 @@ class RollViewController: UIViewController {
             }
         }catch{
             print(error)
+            return ""
         }
         
         return currentGroupName
