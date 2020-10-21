@@ -48,7 +48,6 @@ class CoreDataStack{
         let newGroup = Group(context: context)
         newGroup.group_name = group.group_name
         newGroup.desc = group.desc
-        newGroup.players = group.players
         return newGroup
     }
 }

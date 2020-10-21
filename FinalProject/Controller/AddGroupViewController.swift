@@ -66,11 +66,28 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        guard let group_desc = groupDescription.text, !group_desc.isEmpty else {
+            let ac = UIAlertController(title: "No Group Description!", message: "Your group must have a description", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            present(ac, animated: true)
+            
+            return
+        }
+        if playerNames.count == 0 {
+            let ac = UIAlertController(title: "No Players!", message: "Please add players", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            present(ac, animated: true)
+            
+            return
+        }
+        
         //create a new object and insert into the context
         let newGroup = Group(context: coreDataStack.managedContext)
         newGroup.group_name = group_name
-        newGroup.desc = groupDescription.text
-        newGroup.players = TextFieldTextGrabber(textFields: playerNames)
+        newGroup.desc = groupDescription.text!
+        TextFieldTextGrabber(textFields: playerNames, group: newGroup)
         
         //save the context (with the new user)
         coreDataStack.saveContext()
@@ -190,12 +207,12 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
-    func TextFieldTextGrabber(textFields: [UITextField]) -> [String]{
-        var playerNames: [String] = []
+    func TextFieldTextGrabber(textFields: [UITextField], group: Group){
         for textField in textFields {
-            playerNames.append(textField.text!)
+            let player = Player(context: coreDataStack.managedContext)
+            player.name = textField.text!
+            group.addToPlayer(player)
         }
-        return playerNames
     }
     
 

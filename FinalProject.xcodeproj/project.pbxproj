@@ -26,6 +26,8 @@
 		C38F8809253F48CD00CEB777 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F8808253F48CD00CEB777 /* CoreDataStack.swift */; };
 		C38F880E253F495900CEB777 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F880D253F495900CEB777 /* Groups.swift */; };
 		C38F8821253F4FAB00CEB777 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */; };
+		C38F882725408D3100CEB777 /* Player+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */; };
+		C38F882825408D3100CEB777 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		C38F8808253F48CD00CEB777 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C38F880D253F495900CEB777 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		C38F8820253F4FAB00CEB777 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 		C38F873D252369CB00CEB777 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */,
+				C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */,
 				C38F87FB253F460100CEB777 /* Group+CoreDataClass.swift */,
 				C38F87FC253F460100CEB777 /* Group+CoreDataProperties.swift */,
 				C35DD64B252217D200F49BD5 /* SceneDelegate.swift */,
@@ -317,10 +323,12 @@
 			files = (
 				C38F877C25276F3F00CEB777 /* DiceBag.swift in Sources */,
 				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
+				C38F882825408D3100CEB777 /* Player+CoreDataProperties.swift in Sources */,
 				C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */,
 				C38F877725276BD300CEB777 /* Dice.swift in Sources */,
 				C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */,
 				C38F87FF253F460100CEB777 /* Group+CoreDataClass.swift in Sources */,
+				C38F882725408D3100CEB777 /* Player+CoreDataClass.swift in Sources */,
 				C38F8809253F48CD00CEB777 /* CoreDataStack.swift in Sources */,
 				C38F880E253F495900CEB777 /* Groups.swift in Sources */,
 				C38F8821253F4FAB00CEB777 /* AddGroupViewController.swift in Sources */,
