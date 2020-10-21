@@ -16,8 +16,8 @@ extension Selected {
         return NSFetchRequest<Selected>(entityName: "Selected")
     }
 
-    @NSManaged public var selected: Bool
-    @NSManaged public var group: Group?
+    @NSManaged public var currently_selected: Bool
+    @NSManaged public var group: Group
 
 }
 

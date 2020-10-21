@@ -41,9 +41,6 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
         
     }
 
-    func checkSelected(group: Group){
-        
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,9 +65,10 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
             try fetchedResultsController?.performFetch()
             
         } catch {
-            print("Problem fetching users \(error) : \(error.localizedDescription)")
+            print("Problem fetching groups \(error) : \(error.localizedDescription)")
         }
     }
+    
     
    
 }
@@ -123,11 +121,60 @@ extension GroupsViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! GroupsTableViewCell
         guard let groupSelected = fetchedResultsController?.object(at: indexPath) else { return }
-        //find a way to make all other groups unselected
-        groupSelected.selected?.selected = true
-        cell.cellImage.alpha = 1
-      
-        checkSelected(group: groupSelected)
+        
+        let fetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
+        //searches for group id matching selected id
+        fetchRequest.predicate = NSPredicate(format: "group == %@", groupSelected.selected.group)
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            
+            //changes selected to true
+            fetchedResults.first?.setValue(true, forKey: "currently_selected")
+            if fetchedResults.first?.currently_selected == true {
+                cell.cellImage.alpha = 1
+            }else{
+                cell.cellImage.alpha = 0
+            }
+            
+
+            coreDataStack.saveContext()
+        }
+        catch{
+            print(error)
+            
+        }
+        
+        let reverseFetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
+        //searches for all id's not matching selected
+        reverseFetchRequest.predicate = NSPredicate(format: "NOT group == %@", groupSelected.selected.group)
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(reverseFetchRequest)
+            print("Fetched Results: \(fetchedResults.count)")
+            
+            for results in fetchedResults{
+                results.setValue(false, forKey: "currently_selected")
+                //cell.cellImage.alpha = 0
+            }
+          coreDataStack.saveContext()
+        }
+        catch{
+            print(error)
+            
+        }
+        
+        
+       
+        
+        
+       
+        
+        
+        
+       
+        
+
+        
+
         
         
     }

@@ -11,7 +11,7 @@
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="player" inverseEntity="Group"/>
     </entity>
     <entity name="Selected" representedClassName="Selected" syncable="YES">
-        <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="currently_selected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="selected" inverseEntity="Group"/>
     </entity>
     <elements>

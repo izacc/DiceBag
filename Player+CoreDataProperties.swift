@@ -16,8 +16,8 @@ extension Player {
         return NSFetchRequest<Player>(entityName: "Player")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var group: Group?
+    @NSManaged public var name: String
+    @NSManaged public var group: Group
 
 }
 

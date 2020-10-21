@@ -43,12 +43,6 @@ class CoreDataStack{
         }
     }
     
-    func createGroup(from group: TheGroup, for context: NSManagedObjectContext) -> Group {
-        
-        let newGroup = Group(context: context)
-        newGroup.group_name = group.group_name
-        newGroup.desc = group.desc
-        return newGroup
-    }
+    
 }
 

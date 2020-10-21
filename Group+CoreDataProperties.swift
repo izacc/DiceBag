@@ -16,10 +16,10 @@ extension Group {
         return NSFetchRequest<Group>(entityName: "Group")
     }
 
-    @NSManaged public var group_name: String
     @NSManaged public var desc: String
+    @NSManaged public var group_name: String
     @NSManaged public var player: NSSet
-    @NSManaged public var selected: Selected?
+    @NSManaged public var selected: Selected
 
 }
 

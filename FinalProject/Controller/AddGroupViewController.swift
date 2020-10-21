@@ -37,7 +37,6 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         self.playerName.delegate = self
         self.groupName.delegate = self
         
-        
     }
     
     //MARK: - ACTIONS
@@ -86,8 +85,6 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         newGroup.desc = groupDescription.text!
         TextFieldTextGrabber(textFields: playerNames, group: newGroup)
         newGroup.selected = Selected(context: coreDataStack.managedContext)
-        newGroup.selected?.selected = false
-        
         //save the context (with the new user)
         coreDataStack.saveContext()
         
@@ -205,6 +202,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
     }
+    
     
     func TextFieldTextGrabber(textFields: [UITextField], group: Group){
         for textField in textFields {

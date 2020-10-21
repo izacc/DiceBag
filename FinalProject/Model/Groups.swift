@@ -15,5 +15,6 @@ struct TheGroup{
 
     var desc: String
     var group_name: String
-    var players: [String]
+    var players: NSSet
+    var selected: Bool
 }
