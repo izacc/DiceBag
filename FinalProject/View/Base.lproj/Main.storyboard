@@ -418,6 +418,9 @@
                     <navigationItem key="navigationItem" id="CS4-Ah-pHr">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="7V2-Uz-kc9">
                             <color key="tintColor" red="0.83137254900000002" green="0.35294117650000001" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="AddGroup:" destination="k9V-Dw-Gv2" id="O9w-uX-l4R"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

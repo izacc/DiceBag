@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddGroupViewController: UIViewController, UITextFieldDelegate {
     
@@ -44,9 +45,40 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - ACTIONS
     @IBAction func AddPlayer(_ sender: Any) {
+        guard let player_name = playerName.text, !player_name.isEmpty else{
+            let ac = UIAlertController(title: "Player Field Empty!", message: "Please input a player name", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            present(ac, animated: true)
+            
+            return
+        }
         GenerateTextField()
     }
     
+    @IBAction func AddGroup(_ sender: Any) {
+        guard let group_name = groupName.text, !group_name.isEmpty else {
+            let ac = UIAlertController(title: "No Group Name!", message: "Your group must have a name", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            present(ac, animated: true)
+            
+            return
+        }
+        
+        //create a new object and insert into the context
+        let newGroup = Group(context: coreDataStack.managedContext)
+        newGroup.group_name = group_name
+        newGroup.desc = groupDescription.text
+        newGroup.players = TextFieldTextGrabber(textFields: playerNames)
+        
+        //save the context (with the new user)
+        coreDataStack.saveContext()
+        
+        
+        //dismiss this viewcontroller
+        navigationController?.popViewController(animated: true)
+    }
     
     //MARK: - FUNCTIONS
     
@@ -157,6 +189,15 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
     }
+    
+    func TextFieldTextGrabber(textFields: [UITextField]) -> [String]{
+        var playerNames: [String] = []
+        for textField in textFields {
+            playerNames.append(textField.text!)
+        }
+        return playerNames
+    }
+    
 
 
 }
