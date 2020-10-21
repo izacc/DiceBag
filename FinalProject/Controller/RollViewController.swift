@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 class RollViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var RollButton: UIButton!
@@ -43,7 +43,7 @@ class RollViewController: UIViewController {
     
     //MARK: - Variables
     public var count = 1
-    
+    var coreDataStack = CoreDataStack(modelName: "FinalProject")
     //references the dice selection view
     let DiceSelectionVc = DiceSelectionViewController()
     override func viewDidLoad() {
@@ -54,7 +54,12 @@ class RollViewController: UIViewController {
         rollingDice4.alpha = 0
         rollingDice5.alpha = 0
         rollingDice6.alpha = 0
+        groupLabel.text = "Group: \(GroupDisplayer())"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        groupLabel.text = "Group: \(GroupDisplayer())"
     }
 
     //MARK: - Actions
@@ -111,6 +116,24 @@ class RollViewController: UIViewController {
     }
     
     //MARK: - Functions
+    public func GroupDisplayer() -> String {
+        let fetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
+        var currentGroupName: String = ""
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            for results in fetchedResults{
+                if results.currently_selected{
+                    currentGroupName = results.group.group_name
+                }
+            }
+        }catch{
+            print(error)
+        }
+        
+        return currentGroupName
+    }
+    
+    
     public func DiceDecider(count : Int, sides : Int, textSize: Int, textOffsetX: CGFloat, textOffsetY: CGFloat){
         //counts for each dice position on the storyboard
         switch(count){
