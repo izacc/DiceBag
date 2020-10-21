@@ -40,6 +40,9 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - ACTIONS
+    
+    //FailSafes for form completetion
+    //checks to see the player textfield has text before adding a player
     @IBAction func AddPlayer(_ sender: Any) {
         guard let player_name = playerName.text, !player_name.isEmpty else{
             let ac = UIAlertController(title: "Player Field Empty!", message: "Please input a player name", preferredStyle: .alert)
@@ -52,7 +55,9 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         GenerateTextField()
     }
     
+    //checks the rest of the fields have information before moving on
     @IBAction func AddGroup(_ sender: Any) {
+        //checks for name field
         guard let group_name = groupName.text, !group_name.isEmpty else {
             let ac = UIAlertController(title: "No Group Name!", message: "Your group must have a name", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -60,8 +65,10 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             present(ac, animated: true)
             
             return
+            
+            
         }
-        
+        //checks for description field
         guard let group_desc = groupDescription.text, !group_desc.isEmpty else {
             let ac = UIAlertController(title: "No Group Description!", message: "Your group must have a description", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -70,6 +77,8 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             
             return
         }
+        
+        //checks if players have been added
         if playerNames.count == 0 {
             let ac = UIAlertController(title: "No Players!", message: "Please add players", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
@@ -81,11 +90,16 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         
         //create a new object and insert into the context
         let newGroup = Group(context: coreDataStack.managedContext)
+        //fills out object with required info
         newGroup.group_name = group_name
         newGroup.desc = groupDescription.text!
-        TextFieldTextGrabber(textFields: playerNames, group: newGroup)
+        //Adds players to our object from the generated textfields
+        PlayerCreator(textFields: playerNames, group: newGroup)
+        
+        //creates a selected property, automatically set to false
         newGroup.selected = Selected(context: coreDataStack.managedContext)
-        //save the context (with the new user)
+        
+        //save the context (with the new Group)
         coreDataStack.saveContext()
         
         
@@ -121,13 +135,17 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             //changes playertextfield top constraint
             let newPlayerNameConstraint = NSLayoutConstraint(item: playerNameTopConstraint.firstItem!, attribute: playerNameTopConstraint.firstAttribute, relatedBy: playerNameTopConstraint.relation, toItem: lastPlayerTextField, attribute: playerNameTopConstraint.secondAttribute, multiplier: playerNameTopConstraint.multiplier, constant: playerNameTopConstraint.constant)
             
+            //deactivates constraints
             NSLayoutConstraint.deactivate([ addButtonTopConstraint, playerNameTopConstraint])
              
+            //reassigns constraints
              addButtonTopConstraint = newButtonConstraint
              playerNameTopConstraint = newPlayerNameConstraint
              
+            //activates them again
              NSLayoutConstraint.activate([ addButtonTopConstraint, playerNameTopConstraint])
             
+            //animates
             UIView.animate(withDuration: 0.3, animations: {
                
                 
@@ -169,7 +187,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             //activates constraints
             NSLayoutConstraint.activate([ addButtonTopConstraint, playerNameTopConstraint])
             
-            
+            //animates
             UIView.animate(withDuration: 0.3, animations: {
                
                 
@@ -199,15 +217,15 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-    }
     
-    
-    func TextFieldTextGrabber(textFields: [UITextField], group: Group){
+    func PlayerCreator(textFields: [UITextField], group: Group){
+        //loops through our creates textfields
         for textField in textFields {
+            //creates a player object
             let player = Player(context: coreDataStack.managedContext)
+            //sets the player name to the text from our textfield
             player.name = textField.text!
+            //adds it to our group object
             group.addToPlayer(player)
         }
     }

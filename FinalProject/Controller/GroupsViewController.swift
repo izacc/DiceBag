@@ -33,7 +33,7 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addGroup"{
-            //this is bugged
+            //segue to add group
             let destinationVC = segue.destination as! AddGroupViewController
             //passes our datastack
             destinationVC.coreDataStack = coreDataStack
@@ -45,6 +45,7 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //loads our page with the correct information when we swap between pages
         fetchGroups()
         
         self.tableView.reloadData()
@@ -112,13 +113,17 @@ extension GroupsViewController{
         //populate the cell
         cell.cellTitle.text = currentGroup.group_name
         
+        //fretch request of our selected table
         let imageFetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
         
         do{
+            //fetch with our CoreDataStack
             let fetchedResults = try coreDataStack.managedContext.fetch(imageFetchRequest)
             for results in fetchedResults{
+                //if the group id in our CoreData matches the group id of the current cell & it is selected then show image
                 if results.group == currentGroup.selected.group && results.currently_selected == true {
                     cell.cellImage.alpha = 1
+                //same as above but checks for false to turn off image
                 }else if results.group == currentGroup.selected.group && results.currently_selected == false{
                     cell.cellImage.alpha = 0
                 }
@@ -146,7 +151,7 @@ extension GroupsViewController{
             fetchedResults.first?.setValue(true, forKey: "currently_selected")
             
             
-
+            //saves to database
             coreDataStack.saveContext()
         }
         catch{
@@ -160,16 +165,18 @@ extension GroupsViewController{
         do{
             let fetchedResults = try coreDataStack.managedContext.fetch(reverseFetchRequest)
             
+            //sets everything else to false for currently_selected
             for results in fetchedResults{
                 results.setValue(false, forKey: "currently_selected")
             }
+            //saves
           coreDataStack.saveContext()
         }
         catch{
             print(error)
             
         }
-        
+        //reloads our table to show update for image
         fetchGroups()
         self.tableView.reloadData()
     }

@@ -117,20 +117,26 @@ class RollViewController: UIViewController {
     
     //MARK: - Functions
     public func GroupDisplayer() -> String {
+        //Fetch request for selected
         let fetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
+        //assigns our return string
         var currentGroupName: String = ""
         do{
+            //fetches results with coredata
             let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
             for results in fetchedResults{
+                //we only want the selected object
                 if results.currently_selected{
+                    //assign our variable to the text of the group name
                     currentGroupName = results.group.group_name
                 }
             }
         }catch{
             print(error)
-            return ""
+            //probably dont need this return
+            return currentGroupName
         }
-        
+        //return
         return currentGroupName
     }
     
@@ -149,7 +155,7 @@ class RollViewController: UIViewController {
             rollingDice1Label.text = "\(r)"
             //changes dice text to appropriate text size
             rollingDice1Label.font = rollingDice1Label.font.withSize(CGFloat(textSize))
-            //changes positioning of the dice tex
+            //changes positioning of the dice text
             rollingDice1LabelXCons.constant = textOffsetX
             rollingDice1LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
