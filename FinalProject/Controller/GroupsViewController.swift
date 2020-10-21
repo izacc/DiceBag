@@ -112,6 +112,21 @@ extension GroupsViewController{
         //populate the cell
         cell.cellTitle.text = currentGroup.group_name
         
+        let imageFetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
+        
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(imageFetchRequest)
+            for results in fetchedResults{
+                if results.group == currentGroup.selected.group && results.currently_selected == true {
+                    cell.cellImage.alpha = 1
+                }else if results.group == currentGroup.selected.group && results.currently_selected == false{
+                    cell.cellImage.alpha = 0
+                }
+            }
+        }catch{
+            
+        }
+        
         return cell
     }
     
@@ -119,7 +134,6 @@ extension GroupsViewController{
 
 extension GroupsViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! GroupsTableViewCell
         guard let groupSelected = fetchedResultsController?.object(at: indexPath) else { return }
         
         let fetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
@@ -130,11 +144,7 @@ extension GroupsViewController{
             
             //changes selected to true
             fetchedResults.first?.setValue(true, forKey: "currently_selected")
-            if fetchedResults.first?.currently_selected == true {
-                cell.cellImage.alpha = 1
-            }else{
-                cell.cellImage.alpha = 0
-            }
+            
             
 
             coreDataStack.saveContext()
@@ -149,11 +159,9 @@ extension GroupsViewController{
         reverseFetchRequest.predicate = NSPredicate(format: "NOT group == %@", groupSelected.selected.group)
         do{
             let fetchedResults = try coreDataStack.managedContext.fetch(reverseFetchRequest)
-            print("Fetched Results: \(fetchedResults.count)")
             
             for results in fetchedResults{
                 results.setValue(false, forKey: "currently_selected")
-                //cell.cellImage.alpha = 0
             }
           coreDataStack.saveContext()
         }
@@ -162,21 +170,8 @@ extension GroupsViewController{
             
         }
         
-        
-       
-        
-        
-       
-        
-        
-        
-       
-        
-
-        
-
-        
-        
+        fetchGroups()
+        self.tableView.reloadData()
     }
 }
 
