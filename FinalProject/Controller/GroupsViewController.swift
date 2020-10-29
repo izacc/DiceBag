@@ -29,8 +29,6 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     //MARK: - FUNCTIONS
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addGroup"{
             //segue to add group

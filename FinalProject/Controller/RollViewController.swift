@@ -44,6 +44,8 @@ class RollViewController: UIViewController {
     //MARK: - Variables
     public var count = 1
     var coreDataStack = CoreDataStack(modelName: "FinalProject")
+    public var currentGroupPlayers = [String]()
+    public static var playerIndexer = 0
     //references the dice selection view
     let DiceSelectionVc = DiceSelectionViewController()
     override func viewDidLoad() {
@@ -55,12 +57,31 @@ class RollViewController: UIViewController {
         rollingDice5.alpha = 0
         rollingDice6.alpha = 0
         groupLabel.text = "Group: \(GroupDisplayer())"
+        rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
+        
+        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "group.group_name == %@", GroupDisplayer())
+        
+       
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            for results in fetchedResults {
+                currentGroupPlayers.append(results.name)
+            }
+        }catch{
+            print(error)
+        }
         
     }
+           
     
     override func viewWillAppear(_ animated: Bool) {
         groupLabel.text = "Group: \(GroupDisplayer())"
+        rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
+        
+        //display player and cycle through players
     }
+    
 
     //MARK: - Actions
     @IBAction func RollButtonPressed(_ sender: Any) {
@@ -103,8 +124,15 @@ class RollViewController: UIViewController {
                 count += 1
                 
                 
-                
             }
+            if (RollViewController.playerIndexer + 1 >= currentGroupPlayers.count){
+                RollViewController.playerIndexer = 0
+            }else{
+                RollViewController.playerIndexer += 1
+            }
+            
+            rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
+            
         }else{
             //alerts the user that they have no dice
             let ac = UIAlertController(title: "Empty Dice Bag!", message: "Your dice bag has no dice in it", preferredStyle: .alert)
@@ -113,6 +141,8 @@ class RollViewController: UIViewController {
             present(ac, animated: true)
         }
         count = 1
+        
+        
     }
     
     //MARK: - Functions
@@ -138,6 +168,30 @@ class RollViewController: UIViewController {
         }
         //return
         return currentGroupName
+    }
+    
+    //MARK: - Functions
+    public func PlayerDisplayer(currentGroupName: String) -> String {
+        //Fetch request for selected
+        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "group.group_name == %@", currentGroupName)
+        //assigns our return string
+        
+        var currentPlayerName: String = ""
+        do{
+            //fetches results with coredata
+            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+           
+            currentPlayerName = fetchedResults[RollViewController.playerIndexer].name
+            print(RollViewController.playerIndexer)
+             
+        }catch{
+            print(error)
+            //probably dont need this return
+            return currentPlayerName
+        }
+        //return
+        return currentPlayerName
     }
     
     
