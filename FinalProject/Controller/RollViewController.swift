@@ -84,6 +84,9 @@ class RollViewController: UIViewController {
     
 
     //MARK: - Actions
+    @IBAction func diceClear(_ sender: Any) {
+        DiceClear()
+    }
     @IBAction func RollButtonPressed(_ sender: Any) {
         //as long as there are dice in the bag
         if DiceBag.DiceBag.count > 0 {
@@ -171,6 +174,16 @@ class RollViewController: UIViewController {
     }
     
     //MARK: - Functions
+    
+    public func DiceClear(){
+        rollingDice1.alpha = 0
+        rollingDice2.alpha = 0
+        rollingDice3.alpha = 0
+        rollingDice4.alpha = 0
+        rollingDice5.alpha = 0
+        rollingDice6.alpha = 0
+    }
+     
     public func PlayerDisplayer(currentGroupName: String) -> String {
         //Fetch request for selected
         let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
