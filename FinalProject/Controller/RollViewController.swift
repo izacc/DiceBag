@@ -69,7 +69,6 @@ class RollViewController: UIViewController {
         rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
         
         
-        
     }
            
     
@@ -138,8 +137,8 @@ class RollViewController: UIViewController {
             }else{
                 RollViewController.playerIndexer += 1
             }
-            
             rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
+            
             
         }else{
             //alerts the user that they have no dice
@@ -256,7 +255,6 @@ class RollViewController: UIViewController {
         do{
             //fetches results with coredata
             let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
-           
             currentPlayerName = fetchedResults[RollViewController.playerIndexer].name
             print(RollViewController.playerIndexer)
              
