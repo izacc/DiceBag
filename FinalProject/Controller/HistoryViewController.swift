@@ -12,12 +12,15 @@ class HistoryViewController: UITableViewController {
     //MARK: - VARIABLES
     public var coreDataStack = CoreDataStack(modelName: "FinalProject")
     public var historyObjects = [History]()
+    public var currentGroupName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
             HistoryFetch()
         }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         HistoryFetch()
+        self.tableView.reloadData()
     }
     
     
@@ -47,6 +50,7 @@ class HistoryViewController: UITableViewController {
                     
                     //assign our variable to the text of the group name
                     currentGroup = results.group
+                    currentGroupName = currentGroup.group_name
                 }
             }
         
@@ -86,5 +90,8 @@ extension HistoryViewController{
         cell.textLabel?.text = "\(historyObjects[indexPath.row].playerName):"
         cell.detailTextLabel?.text = historyObjects[indexPath.row].rollHistory
         return cell
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Group - \(currentGroupName)"
     }
 }
