@@ -62,26 +62,21 @@ class RollViewController: UIViewController {
         rollingDice4.alpha = 0
         rollingDice5.alpha = 0
         rollingDice6.alpha = 0
+        
+        PlayerRefresher()
+        
         groupLabel.text = "Group: \(GroupDisplayer())"
         rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
         
-        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "group.group_name == %@", GroupDisplayer())
         
-       
-        do{
-            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
-            for results in fetchedResults {
-                RollViewController.currentGroupPlayers.append(results.name)
-            }
-        }catch{
-            print(error)
-        }
         
     }
            
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        PlayerRefresher()
+        
         groupLabel.text = "Group: \(GroupDisplayer())"
         rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
         
@@ -183,6 +178,22 @@ class RollViewController: UIViewController {
         return currentGroupName
     }
     
+    public func PlayerRefresher(){
+        RollViewController.currentGroupPlayers = []
+        let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "group.group_name == %@", GroupDisplayer())
+        
+       
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            for results in fetchedResults {
+                RollViewController.currentGroupPlayers.append(results.name)
+            }
+        }catch{
+            print(error)
+        }
+    }
+    
     public func HistoryProcessor() -> String{
         var historyString = ""
         for roll in currentRoll{
@@ -236,7 +247,7 @@ class RollViewController: UIViewController {
     }
      
     public func PlayerDisplayer(currentGroupName: String) -> String {
-        //Fetch request for selected
+        //Fetch request for player
         let fetchRequest: NSFetchRequest<Player> = Player.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "group.group_name == %@", currentGroupName)
         //assigns our return string
