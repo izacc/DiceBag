@@ -44,10 +44,16 @@ class RollViewController: UIViewController {
     //MARK: - Variables
     public var count = 1
     var coreDataStack = CoreDataStack(modelName: "FinalProject")
-    public var currentGroupPlayers = [String]()
+    public static var currentGroupPlayers = [String]()
     public static var playerIndexer = 0
+    public var currentRoll = [String]()
+    
+    
+    
     //references the dice selection view
     let DiceSelectionVc = DiceSelectionViewController()
+    
+    //view did load
     override func viewDidLoad() {
         super.viewDidLoad()
         rollingDice1.alpha = 0
@@ -66,7 +72,7 @@ class RollViewController: UIViewController {
         do{
             let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
             for results in fetchedResults {
-                currentGroupPlayers.append(results.name)
+                RollViewController.currentGroupPlayers.append(results.name)
             }
         }catch{
             print(error)
@@ -88,6 +94,7 @@ class RollViewController: UIViewController {
         DiceClear()
     }
     @IBAction func RollButtonPressed(_ sender: Any) {
+        currentRoll = []
         //as long as there are dice in the bag
         if DiceBag.DiceBag.count > 0 {
             //loop through them
@@ -128,7 +135,10 @@ class RollViewController: UIViewController {
                 
                 
             }
-            if (RollViewController.playerIndexer + 1 >= currentGroupPlayers.count){
+            
+            AddHistory()
+            //Increments the player in order
+            if (RollViewController.playerIndexer + 1 >= RollViewController.currentGroupPlayers.count){
                 RollViewController.playerIndexer = 0
             }else{
                 RollViewController.playerIndexer += 1
@@ -173,7 +183,48 @@ class RollViewController: UIViewController {
         return currentGroupName
     }
     
-    //MARK: - Functions
+    public func HistoryProcessor() -> String{
+        var historyString = ""
+        for roll in currentRoll{
+            historyString += roll
+        }
+        return historyString
+    }
+    
+    public func AddHistory(){
+        
+        let fetchRequest: NSFetchRequest<Group> = Group.fetchRequest()
+        //searches for group matching our currently selected group name
+        fetchRequest.predicate = NSPredicate(format: "group_name == %@", GroupDisplayer())
+        do{
+            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            
+            //assigns our group variable
+            let currentGroup = fetchedResults.first!
+            
+            
+        
+        //create a new object and insert into the context
+        let newHistory = History(context: coreDataStack.managedContext)
+        //fills out object with required info
+        newHistory.playerName = PlayerDisplayer(currentGroupName: GroupDisplayer())
+        newHistory.rollHistory = "\(HistoryProcessor())"
+            
+        
+        //adds history to our group
+        currentGroup.addToHistory(newHistory)
+        
+        
+        //save the context (with the new Group)
+        coreDataStack.saveContext()
+        
+        }
+        catch{
+            print(error)
+            
+        }
+        
+    }
     
     public func DiceClear(){
         rollingDice1.alpha = 0
@@ -226,7 +277,7 @@ class RollViewController: UIViewController {
             rollingDice1LabelXCons.constant = textOffsetX
             rollingDice1LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
-            
+            currentRoll.append("d\(sides) - Rolled \(r)\n")
             break
         case 2:
             rollingDice2.alpha = 1
@@ -237,6 +288,7 @@ class RollViewController: UIViewController {
             rollingDice2LabelXCons.constant = textOffsetX
             rollingDice2LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
+            currentRoll.append("d\(sides) - Rolled \(r)\n")
             break
         case 3:
             rollingDice3.alpha = 1
@@ -258,6 +310,7 @@ class RollViewController: UIViewController {
             rollingDice4LabelXCons.constant = textOffsetX
             rollingDice4LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
+            currentRoll.append("d\(sides) - Rolled \(r)\n")
             break
             
         case 5:
@@ -269,6 +322,7 @@ class RollViewController: UIViewController {
             rollingDice5LabelXCons.constant = textOffsetX
             rollingDice5LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
+            currentRoll.append("d\(sides) - Rolled \(r)\n")
             break
             
         case 6:
@@ -280,6 +334,7 @@ class RollViewController: UIViewController {
             rollingDice6LabelXCons.constant = textOffsetX
             rollingDice6LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
+            currentRoll.append("d\(sides) - Rolled \(r)\n")
             break
         default:
             

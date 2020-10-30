@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C321965D254CA86E00765472 /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C321965B254CA86E00765472 /* History+CoreDataClass.swift */; };
+		C321965E254CA86E00765472 /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C321965C254CA86E00765472 /* History+CoreDataProperties.swift */; };
 		C35DD64A252217D200F49BD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD649252217D200F49BD5 /* AppDelegate.swift */; };
 		C35DD64C252217D200F49BD5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD64B252217D200F49BD5 /* SceneDelegate.swift */; };
 		C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD64D252217D200F49BD5 /* RollViewController.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C321965B254CA86E00765472 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C321965C254CA86E00765472 /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C35DD646252217D200F49BD5 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35DD649252217D200F49BD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C35DD64B252217D200F49BD5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 		C38F873D252369CB00CEB777 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C321965B254CA86E00765472 /* History+CoreDataClass.swift */,
+				C321965C254CA86E00765472 /* History+CoreDataProperties.swift */,
 				C38F882C25409C0D00CEB777 /* Selected+CoreDataClass.swift */,
 				C38F882D25409C0D00CEB777 /* Selected+CoreDataProperties.swift */,
 				C38F882525408D3100CEB777 /* Player+CoreDataClass.swift */,
@@ -331,6 +337,7 @@
 				C35DD64E252217D200F49BD5 /* RollViewController.swift in Sources */,
 				C38F882825408D3100CEB777 /* Player+CoreDataProperties.swift in Sources */,
 				C38F882E25409C0D00CEB777 /* Selected+CoreDataClass.swift in Sources */,
+				C321965E254CA86E00765472 /* History+CoreDataProperties.swift in Sources */,
 				C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */,
 				C38F877725276BD300CEB777 /* Dice.swift in Sources */,
 				C38F882F25409C0D00CEB777 /* Selected+CoreDataProperties.swift in Sources */,
@@ -340,6 +347,7 @@
 				C38F8809253F48CD00CEB777 /* CoreDataStack.swift in Sources */,
 				C38F880E253F495900CEB777 /* Groups.swift in Sources */,
 				C38F8821253F4FAB00CEB777 /* AddGroupViewController.swift in Sources */,
+				C321965D254CA86E00765472 /* History+CoreDataClass.swift in Sources */,
 				C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */,
 				C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */,
 				C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */,
