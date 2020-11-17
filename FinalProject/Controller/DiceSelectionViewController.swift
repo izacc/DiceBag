@@ -11,6 +11,7 @@ import UIKit
 class DiceSelectionViewController: UIViewController {
 
     //MARK: - Outlets
+    @IBOutlet weak var RollButton: UIButton!
     @IBOutlet weak var d4Dice: UIButton!
     @IBOutlet weak var d6Dice: UIButton!
     @IBOutlet weak var d8Dice: UIButton!
@@ -48,7 +49,6 @@ class DiceSelectionViewController: UIViewController {
         d12Dice.addGestureRecognizer(createLongPress())
         d20Dice.addGestureRecognizer(createLongPress())
         
-      
 
     }
     
@@ -56,6 +56,10 @@ class DiceSelectionViewController: UIViewController {
     
     
     //MARK: - Button Actions
+    @IBAction func rollButtonTapped(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func d4DicePressed(_ sender: Any) {
         //ensures the user can only roll 6 or less dice at one time
         if DiceBag.DiceBag.count < 6 {

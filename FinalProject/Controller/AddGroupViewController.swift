@@ -8,13 +8,13 @@
 import UIKit
 import CoreData
 
-class AddGroupViewController: UIViewController, UITextFieldDelegate {
+class AddGroupViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     //MARK: - OUTLETS
     @IBOutlet weak var groupName: UITextField!
     @IBOutlet weak var groupDescription: UITextView!
     @IBOutlet weak var addPlayerButton: UIButton!
-    @IBOutlet weak var playerName: UITextField!
+    var playerName: String = ""
     
     //MARK: - CONSTRAINTS
     
@@ -34,8 +34,8 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         addPlayerButton.layer.cornerRadius = addPlayerButton.frame.height * 0.50
         addPlayerButton.clipsToBounds = true
         
-        self.playerName.delegate = self
         self.groupName.delegate = self
+        self.groupDescription.delegate = self
         
     }
     
@@ -44,15 +44,28 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     //FailSafes for form completetion
     //checks to see the player textfield has text before adding a player
     @IBAction func AddPlayer(_ sender: Any) {
-        guard let player_name = playerName.text, !player_name.isEmpty else{
-            let ac = UIAlertController(title: "Player Field Empty!", message: "Please input a player name", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        let ac = UIAlertController(title: "Please input player name", message: nil, preferredStyle: .alert)
+        ac.addTextField(configurationHandler: {(textField) in
+            textField.placeholder = "Player Name"
+        })
+        ac.addAction(UIAlertAction(title: "Add", style: .default, handler: {(_) in
+            self.playerName = ac.textFields![0].text!
             
-            present(ac, animated: true)
-            
-            return
-        }
-        GenerateTextField()
+            if(self.playerName == ""){
+                let ac = UIAlertController(title: "Player Field Empty!", message: "Please input a player name", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                
+                self.present(ac, animated: true)
+            }else{
+                self.GenerateTextField()
+            }
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(ac, animated: true, completion: nil)
+        
+        
+        
     }
     
     //checks the rest of the fields have information before moving on
@@ -108,17 +121,16 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: - FUNCTIONS
-    
     func GenerateTextField(){
         if !didCreatePlayer1 {
-            let newTextField: UITextField = UITextField(frame: CGRect(x: 20.0, y: 453.0, width: 394, height: 34))
+            let newTextField: UITextField = UITextField(frame: CGRect(x: 20.0, y: 468.0, width: 394, height: 34))
             
             
             
             //add attributes here
             newTextField.borderStyle = .roundedRect
             newTextField.backgroundColor = .white
-            newTextField.text = playerName.text
+            newTextField.text = playerName
             newTextField.isEnabled = false
         
             //assigns to variable so we know the position of the text field
@@ -127,7 +139,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             self.view.addSubview(lastPlayerTextField)
             playerNames.append(lastPlayerTextField)
             
-            playerName.text = ""
+            playerName = ""
             //changes add button top constraint
             
             let newButtonConstraint = NSLayoutConstraint(item: addButtonTopConstraint.firstItem!, attribute: addButtonTopConstraint.firstAttribute, relatedBy: addButtonTopConstraint.relation, toItem: lastPlayerTextField, attribute: addButtonTopConstraint.secondAttribute, multiplier: addButtonTopConstraint.multiplier, constant: addButtonTopConstraint.constant)
@@ -161,7 +173,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             //add attributes here
             newTextField.borderStyle = .roundedRect
             newTextField.backgroundColor = .white
-            newTextField.text = playerName.text
+            newTextField.text = playerName
             newTextField.isEnabled = false
         
             //assigns to variable so we know the position of the text field
@@ -169,7 +181,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
             //adds to the view
             self.view.addSubview(lastPlayerTextField)
             playerNames.append(lastPlayerTextField)
-            playerName.text = ""
+            playerName = ""
             
             //changes add button top constraint
             
@@ -215,6 +227,12 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate {
         }
 
         return false
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n"){
+            textView.resignFirstResponder()
+        }
+        return true
     }
     
     

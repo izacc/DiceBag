@@ -52,7 +52,7 @@ class RollViewController: UIViewController {
     
     //references the dice selection view
     let DiceSelectionVc = DiceSelectionViewController()
-    
+    //MARK: - Override Functions
     //view did load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,12 +82,26 @@ class RollViewController: UIViewController {
         //display player and cycle through players
     }
     
-
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake{
+            playerRolled()
+        }
+    }
+    
     //MARK: - Actions
     @IBAction func diceClear(_ sender: Any) {
         DiceClear()
     }
     @IBAction func RollButtonPressed(_ sender: Any) {
+       playerRolled()
+    }
+    
+    //MARK: - Functions
+    public func playerRolled(){
         currentRoll = []
         //as long as there are dice in the bag
         if DiceBag.DiceBag.count > 0 {
@@ -97,7 +111,7 @@ class RollViewController: UIViewController {
                 switch(dice.sides){
                     case 4:
                         //calls our method that handles what the attributes of our dice positions are
-                        DiceDecider(count: count, sides: dice.sides, textSize: 29, textOffsetX: -1	, textOffsetY: 8)
+                        DiceDecider(count: count, sides: dice.sides, textSize: 29, textOffsetX: -1    , textOffsetY: 8)
                         break
                     case 6:
                         DiceDecider(count: count, sides: dice.sides, textSize: 32, textOffsetX: -5.0, textOffsetY: 5.0)
@@ -129,8 +143,16 @@ class RollViewController: UIViewController {
                 
                 
             }
+            let fetchRequest: NSFetchRequest<Group> = Group.fetchRequest()
+            do{
+                let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+                if fetchedResults.count != 0{
+                    AddHistory()
+                }
+            }catch{
+                print(error)
+            }
             
-            AddHistory()
             //Increments the player in order
             if (RollViewController.playerIndexer + 1 >= RollViewController.currentGroupPlayers.count){
                 RollViewController.playerIndexer = 0
@@ -152,7 +174,6 @@ class RollViewController: UIViewController {
         
     }
     
-    //MARK: - Functions
     public func GroupDisplayer() -> String {
         //Fetch request for selected
         let fetchRequest: NSFetchRequest<Selected> = Selected.fetchRequest()
@@ -208,9 +229,10 @@ class RollViewController: UIViewController {
         fetchRequest.predicate = NSPredicate(format: "group_name == %@", GroupDisplayer())
         do{
             let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+                //assigns our group variable
+                let currentGroup = fetchedResults.first!
+                
             
-            //assigns our group variable
-            let currentGroup = fetchedResults.first!
             
             
         
@@ -255,8 +277,14 @@ class RollViewController: UIViewController {
         do{
             //fetches results with coredata
             let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            if fetchedResults.count > 1 {
+                
             currentPlayerName = fetchedResults[RollViewController.playerIndexer].name
-            print(RollViewController.playerIndexer)
+            }else if fetchedResults.count == 1{
+                currentPlayerName = fetchedResults[0].name
+            }else{
+                return currentPlayerName
+            }
              
         }catch{
             print(error)
