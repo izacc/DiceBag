@@ -2,7 +2,7 @@
 //  Player+CoreDataProperties.swift
 //  FinalProject
 //
-//  Created by Izacc Casey-Lucas on 10/30/20.
+//  Created by Izacc Casey-Lucas on 12/4/20.
 //
 //
 

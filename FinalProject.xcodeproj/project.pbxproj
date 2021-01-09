@@ -16,8 +16,6 @@
 		C35DD654252217D200F49BD5 /* FinalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C35DD652252217D200F49BD5 /* FinalProject.xcdatamodeld */; };
 		C35DD656252217D500F49BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35DD655252217D500F49BD5 /* Assets.xcassets */; };
 		C35DD659252217D500F49BD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35DD657252217D500F49BD5 /* LaunchScreen.storyboard */; };
-		C35DD664252217D500F49BD5 /* FinalProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD663252217D500F49BD5 /* FinalProjectTests.swift */; };
-		C35DD66F252217D500F49BD5 /* FinalProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35DD66E252217D500F49BD5 /* FinalProjectUITests.swift */; };
 		C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F872C2523638A00CEB777 /* HistoryViewController.swift */; };
 		C38F87322523639F00CEB777 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F87312523639F00CEB777 /* GroupsViewController.swift */; };
 		C38F874525236EBA00CEB777 /* DiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */; };
@@ -32,6 +30,7 @@
 		C38F882825408D3100CEB777 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */; };
 		C38F882E25409C0D00CEB777 /* Selected+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882C25409C0D00CEB777 /* Selected+CoreDataClass.swift */; };
 		C38F882F25409C0D00CEB777 /* Selected+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F882D25409C0D00CEB777 /* Selected+CoreDataProperties.swift */; };
+		C3B403C6256EA4C8005E729A /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B403C5256EA4C8005E729A /* Animations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +63,7 @@
 		C35DD658252217D500F49BD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C35DD65A252217D500F49BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C35DD65F252217D500F49BD5 /* FinalProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C35DD663252217D500F49BD5 /* FinalProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectTests.swift; sourceTree = "<group>"; };
-		C35DD665252217D500F49BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C35DD66A252217D500F49BD5 /* FinalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C35DD66E252217D500F49BD5 /* FinalProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectUITests.swift; sourceTree = "<group>"; };
-		C35DD670252217D500F49BD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C38F872C2523638A00CEB777 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		C38F87312523639F00CEB777 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		C38F874425236EBA00CEB777 /* DiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceSelectionViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +78,7 @@
 		C38F882625408D3100CEB777 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C38F882C25409C0D00CEB777 /* Selected+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selected+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C38F882D25409C0D00CEB777 /* Selected+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selected+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C3B403C5256EA4C8005E729A /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				C35DD648252217D200F49BD5 /* FinalProject */,
-				C35DD662252217D500F49BD5 /* FinalProjectTests */,
-				C35DD66D252217D500F49BD5 /* FinalProjectUITests */,
 				C35DD647252217D200F49BD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,24 +136,6 @@
 				C35DD652252217D200F49BD5 /* FinalProject.xcdatamodeld */,
 			);
 			path = FinalProject;
-			sourceTree = "<group>";
-		};
-		C35DD662252217D500F49BD5 /* FinalProjectTests */ = {
-			isa = PBXGroup;
-			children = (
-				C35DD663252217D500F49BD5 /* FinalProjectTests.swift */,
-				C35DD665252217D500F49BD5 /* Info.plist */,
-			);
-			path = FinalProjectTests;
-			sourceTree = "<group>";
-		};
-		C35DD66D252217D500F49BD5 /* FinalProjectUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C35DD66E252217D500F49BD5 /* FinalProjectUITests.swift */,
-				C35DD670252217D500F49BD5 /* Info.plist */,
-			);
-			path = FinalProjectUITests;
 			sourceTree = "<group>";
 		};
 		C38F873B2523697000CEB777 /* Controller */ = {
@@ -199,6 +175,7 @@
 				C38F877625276BD300CEB777 /* Dice.swift */,
 				C38F877B25276F3F00CEB777 /* DiceBag.swift */,
 				C38F8808253F48CD00CEB777 /* CoreDataStack.swift */,
+				C3B403C5256EA4C8005E729A /* Animations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +330,7 @@
 				C38F872D2523638A00CEB777 /* HistoryViewController.swift in Sources */,
 				C35DD64C252217D200F49BD5 /* SceneDelegate.swift in Sources */,
 				C38F8800253F460100CEB777 /* Group+CoreDataProperties.swift in Sources */,
+				C3B403C6256EA4C8005E729A /* Animations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35DD664252217D500F49BD5 /* FinalProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35DD66F252217D500F49BD5 /* FinalProjectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

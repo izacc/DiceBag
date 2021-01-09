@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="desc" attributeType="String"/>
         <attribute name="group_name" attributeType="String"/>
-        <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="History" inverseName="group" inverseEntity="History"/>
-        <relationship name="player" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="group" inverseEntity="Player"/>
-        <relationship name="selected" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Selected" inverseName="group" inverseEntity="Selected"/>
+        <relationship name="history" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="History" inverseName="group" inverseEntity="History"/>
+        <relationship name="player" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Player" inverseName="group" inverseEntity="Player"/>
+        <relationship name="selected" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Selected" inverseName="group" inverseEntity="Selected"/>
     </entity>
     <entity name="History" representedClassName="History" syncable="YES">
         <attribute name="playerName" optional="YES" attributeType="String"/>
@@ -22,8 +22,8 @@
     </entity>
     <elements>
         <element name="Group" positionX="-27" positionY="18" width="128" height="118"/>
+        <element name="History" positionX="0" positionY="72" width="128" height="88"/>
         <element name="Player" positionX="27" positionY="99" width="128" height="73"/>
         <element name="Selected" positionX="0" positionY="72" width="128" height="73"/>
-        <element name="History" positionX="0" positionY="72" width="128" height="88"/>
     </elements>
 </model>

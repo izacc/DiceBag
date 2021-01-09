@@ -2,7 +2,7 @@
 //  History+CoreDataProperties.swift
 //  FinalProject
 //
-//  Created by Izacc Casey-Lucas on 10/30/20.
+//  Created by Izacc Casey-Lucas on 12/4/20.
 //
 //
 
@@ -16,8 +16,8 @@ extension History {
         return NSFetchRequest<History>(entityName: "History")
     }
 
-    @NSManaged public var rollHistory: String
     @NSManaged public var playerName: String
+    @NSManaged public var rollHistory: String
     @NSManaged public var group: Group
 
 }

@@ -2,7 +2,7 @@
 //  Group+CoreDataProperties.swift
 //  FinalProject
 //
-//  Created by Izacc Casey-Lucas on 10/30/20.
+//  Created by Izacc Casey-Lucas on 12/4/20.
 //
 //
 
@@ -18,26 +18,9 @@ extension Group {
 
     @NSManaged public var desc: String
     @NSManaged public var group_name: String
+    @NSManaged public var history: NSSet
     @NSManaged public var player: NSSet
     @NSManaged public var selected: Selected
-    @NSManaged public var history: NSSet?
-
-}
-
-// MARK: Generated accessors for player
-extension Group {
-
-    @objc(addPlayerObject:)
-    @NSManaged public func addToPlayer(_ value: Player)
-
-    @objc(removePlayerObject:)
-    @NSManaged public func removeFromPlayer(_ value: Player)
-
-    @objc(addPlayer:)
-    @NSManaged public func addToPlayer(_ values: NSSet)
-
-    @objc(removePlayer:)
-    @NSManaged public func removeFromPlayer(_ values: NSSet)
 
 }
 
@@ -55,6 +38,23 @@ extension Group {
 
     @objc(removeHistory:)
     @NSManaged public func removeFromHistory(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for player
+extension Group {
+
+    @objc(addPlayerObject:)
+    @NSManaged public func addToPlayer(_ value: Player)
+
+    @objc(removePlayerObject:)
+    @NSManaged public func removeFromPlayer(_ value: Player)
+
+    @objc(addPlayer:)
+    @NSManaged public func addToPlayer(_ values: NSSet)
+
+    @objc(removePlayer:)
+    @NSManaged public func removeFromPlayer(_ values: NSSet)
 
 }
 

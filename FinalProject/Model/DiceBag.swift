@@ -10,6 +10,7 @@ import Foundation
 
 class DiceBag{
     //MARK: - Dice Declarations
+    //each one of our preset dice
     public static var diceD4 = Dice(sides: 4, diceName: "d4")
     public static var diceD6 = Dice(sides: 6, diceName: "d6")
     public static var diceD8 = Dice(sides: 8, diceName: "d8")

@@ -18,7 +18,6 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
     //MARK: - VARIABLES
     var groupsArray = [Group]()
     var fetchedResultsController: NSFetchedResultsController<Group>?
-    lazy var coreDataStack = CoreDataStack(modelName: "FinalProject")
     
     
     override func viewDidLoad() {
@@ -30,11 +29,14 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
     
     //MARK: - FUNCTIONS
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addGroup"{
+        switch(segue.identifier){
+        case "addGroup":
             //segue to add group
             let destinationVC = segue.destination as! AddGroupViewController
             //passes our datastack
-            destinationVC.coreDataStack = coreDataStack
+            destinationVC.coreDataStack = HistoryViewController.coreDataStack
+        default:
+            break
         }
         
     }
@@ -55,7 +57,7 @@ class GroupsViewController: UITableViewController, NSFetchedResultsControllerDel
         //alphebetical order by group name
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "group_name", ascending: true)]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.managedContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: HistoryViewController.coreDataStack.managedContext, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchedResultsController?.delegate = self
         
@@ -83,11 +85,12 @@ extension GroupsViewController{
             //find object
             guard let groupToDelete = fetchedResultsController?.object(at: indexPath) else { return }
             //deletes it
-            coreDataStack.managedContext.delete(groupToDelete)
+            HistoryViewController.coreDataStack.managedContext.delete(groupToDelete)
             //saves delete
-            coreDataStack.saveContext()
+            HistoryViewController.coreDataStack.saveContext()
             
-
+            break
+            
         default:
             break
         }
@@ -116,7 +119,7 @@ extension GroupsViewController{
         
         do{
             //fetch with our CoreDataStack
-            let fetchedResults = try coreDataStack.managedContext.fetch(imageFetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(imageFetchRequest)
             for results in fetchedResults{
                 //if the group id in our CoreData matches the group id of the current cell & it is selected then show image
                 if results.group == currentGroup.selected.group && results.currently_selected == true {
@@ -143,14 +146,15 @@ extension GroupsViewController{
         //searches for group id matching selected id
         fetchRequest.predicate = NSPredicate(format: "group == %@", groupSelected.selected.group)
         do{
-            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(fetchRequest)
             
             //changes selected to true
             fetchedResults.first?.setValue(true, forKey: "currently_selected")
             
+            RollViewController.playerIndexer = 0
             
             //saves to database
-            coreDataStack.saveContext()
+            HistoryViewController.coreDataStack.saveContext()
         }
         catch{
             print(error)
@@ -161,14 +165,14 @@ extension GroupsViewController{
         //searches for all id's not matching selected
         reverseFetchRequest.predicate = NSPredicate(format: "NOT group == %@", groupSelected.selected.group)
         do{
-            let fetchedResults = try coreDataStack.managedContext.fetch(reverseFetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(reverseFetchRequest)
             
             //sets everything else to false for currently_selected
             for results in fetchedResults{
                 results.setValue(false, forKey: "currently_selected")
             }
             //saves
-          coreDataStack.saveContext()
+            HistoryViewController.coreDataStack.saveContext()
         }
         catch{
             print(error)
@@ -189,7 +193,7 @@ extension GroupsViewController{
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
     }
-    
+    //action controller
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type{
         case .insert:

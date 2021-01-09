@@ -43,7 +43,6 @@ class RollViewController: UIViewController {
     
     //MARK: - Variables
     public var count = 1
-    var coreDataStack = CoreDataStack(modelName: "FinalProject")
     public static var currentGroupPlayers = [String]()
     public static var playerIndexer = 0
     public var currentRoll = [String]()
@@ -53,9 +52,9 @@ class RollViewController: UIViewController {
     //references the dice selection view
     let DiceSelectionVc = DiceSelectionViewController()
     //MARK: - Override Functions
-    //view did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        //makes the preset dice images invisible
         rollingDice1.alpha = 0
         rollingDice2.alpha = 0
         rollingDice3.alpha = 0
@@ -63,8 +62,10 @@ class RollViewController: UIViewController {
         rollingDice5.alpha = 0
         rollingDice6.alpha = 0
         
+        //updates the current players name
         PlayerRefresher()
         
+        //uppdates group and current player text
         groupLabel.text = "Group: \(GroupDisplayer())"
         rollingLabel.text = "Rolling: \(PlayerDisplayer(currentGroupName: GroupDisplayer()))"
         
@@ -88,6 +89,7 @@ class RollViewController: UIViewController {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake{
+            //if user shakes phone, roll the dice
             playerRolled()
         }
     }
@@ -101,6 +103,26 @@ class RollViewController: UIViewController {
     }
     
     //MARK: - Functions
+  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch(segue.identifier){
+        case "historyTab":
+            //segue to add group
+            let destinationVC = segue.destination as! HistoryViewController
+            //passes our datastack
+            destinationVC.coreDataStack = coreDataStack
+            break
+        case "groupTab":
+            //segue to add group
+            let destinationVC = segue.destination as! GroupsViewController
+            //passes our datastack
+            destinationVC.coreDataStack = coreDataStack
+            break
+        default:
+            break
+        }
+        
+    } */
+    //this method searches through our DiceBag and positions each dice in its proper location on screen
     public func playerRolled(){
         currentRoll = []
         //as long as there are dice in the bag
@@ -145,7 +167,7 @@ class RollViewController: UIViewController {
             }
             let fetchRequest: NSFetchRequest<Group> = Group.fetchRequest()
             do{
-                let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+                let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(fetchRequest)
                 if fetchedResults.count != 0{
                     AddHistory()
                 }
@@ -181,7 +203,7 @@ class RollViewController: UIViewController {
         var currentGroupName: String = ""
         do{
             //fetches results with coredata
-            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(fetchRequest)
             for results in fetchedResults{
                 //we only want the selected object
                 if results.currently_selected{
@@ -205,7 +227,7 @@ class RollViewController: UIViewController {
         
        
         do{
-            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(fetchRequest)
             for results in fetchedResults {
                 RollViewController.currentGroupPlayers.append(results.name)
             }
@@ -228,7 +250,7 @@ class RollViewController: UIViewController {
         //searches for group matching our currently selected group name
         fetchRequest.predicate = NSPredicate(format: "group_name == %@", GroupDisplayer())
         do{
-            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(fetchRequest)
                 //assigns our group variable
                 let currentGroup = fetchedResults.first!
                 
@@ -237,7 +259,7 @@ class RollViewController: UIViewController {
             
         
         //create a new object and insert into the context
-        let newHistory = History(context: coreDataStack.managedContext)
+        let newHistory = History(context: HistoryViewController.coreDataStack.managedContext)
         //fills out object with required info
         newHistory.playerName = PlayerDisplayer(currentGroupName: GroupDisplayer())
         newHistory.rollHistory = "\(HistoryProcessor())"
@@ -248,7 +270,7 @@ class RollViewController: UIViewController {
         
         
         //save the context (with the new Group)
-        coreDataStack.saveContext()
+            HistoryViewController.coreDataStack.saveContext()
         
         }
         catch{
@@ -276,7 +298,7 @@ class RollViewController: UIViewController {
         var currentPlayerName: String = ""
         do{
             //fetches results with coredata
-            let fetchedResults = try coreDataStack.managedContext.fetch(fetchRequest)
+            let fetchedResults = try HistoryViewController.coreDataStack.managedContext.fetch(fetchRequest)
             if fetchedResults.count > 1 {
                 
             currentPlayerName = fetchedResults[RollViewController.playerIndexer].name
@@ -336,6 +358,7 @@ class RollViewController: UIViewController {
             rollingDice3LabelXCons.constant = textOffsetX
             rollingDice3LabelYCons.constant = textOffsetY
             view.layoutIfNeeded()
+            currentRoll.append("d\(sides) - Rolled \(r)\n")
             break
             
         case 4:

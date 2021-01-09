@@ -119,7 +119,7 @@ class DiceSelectionViewController: UIViewController {
             DiceInventory()
         }
     }
-    
+    //clears our dicebag, makes dice text dissappear and shakes our dice
     @IBAction func ClearDiceBag(_ sender: Any) {
         DiceBag.DiceBag = []
         d4Label.alpha = 0;
@@ -128,7 +128,12 @@ class DiceSelectionViewController: UIViewController {
         d10Label.alpha = 0;
         d12Label.alpha = 0;
         d20Label.alpha = 0;
-        
+        Animations.shake(on: d4Dice)
+        Animations.shake(on: d6Dice)
+        Animations.shake(on: d8Dice)
+        Animations.shake(on: d10Dice)
+        Animations.shake(on: d12Dice)
+        Animations.shake(on: d20Dice)
         
         
     }
@@ -136,13 +141,14 @@ class DiceSelectionViewController: UIViewController {
     
     
     //MARK: - Functions
+    //creates a long press gesture for attached item
     func createLongPress() -> UILongPressGestureRecognizer {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(removeDice))
         longPress.minimumPressDuration = 1
         return longPress
     }
     
-    
+    //updates our text next to the buttons for quantity
     func DiceInventory(){
         
         var d4Quantity = 0
@@ -204,6 +210,8 @@ class DiceSelectionViewController: UIViewController {
             case "d4Dice":
                 //creates index for firstelement of type diceD4
                 if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD4){
+                    //shakes dice when long pressed
+                    Animations.shake(on: button)
                     //removes it from the index
                     DiceBag.DiceBag.remove(at: index)
                     //checks if the dice bag no longer has any types of that dice
@@ -215,6 +223,8 @@ class DiceSelectionViewController: UIViewController {
                 break
             case "d6Dice":
                 if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD6){
+                    //shakes dice when long pressed
+                    Animations.shake(on: button)
                     DiceBag.DiceBag.remove(at: index)
                     if !DiceBag.DiceBag.contains(DiceBag.diceD6){
                         d6Label.alpha = 0
@@ -223,6 +233,9 @@ class DiceSelectionViewController: UIViewController {
                 break
             case "d8Dice":
                 if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD8){
+                    //shakes dice when long pressed
+                    Animations.shake(on: button)
+                    
                     DiceBag.DiceBag.remove(at: index)
                     if !DiceBag.DiceBag.contains(DiceBag.diceD8){
                         d8Label.alpha = 0
@@ -231,6 +244,8 @@ class DiceSelectionViewController: UIViewController {
                 break
             case "d10Dice":
                 if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD10){
+                    //shakes dice when long pressed
+                    Animations.shake(on: button)
                     DiceBag.DiceBag.remove(at: index)
                     if !DiceBag.DiceBag.contains(DiceBag.diceD10){
                         d10Label.alpha = 0
@@ -239,6 +254,8 @@ class DiceSelectionViewController: UIViewController {
                 break
             case "d12Dice":
                 if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD12){
+                    //shakes dice when long pressed
+                    Animations.shake(on: button)
                     DiceBag.DiceBag.remove(at: index)
                     if !DiceBag.DiceBag.contains(DiceBag.diceD12){
                         d12Label.alpha = 0
@@ -247,6 +264,8 @@ class DiceSelectionViewController: UIViewController {
                 break
             case "d20Dice":
                 if let index = DiceBag.DiceBag.firstIndex(of: DiceBag.diceD20){
+                    //shakes dice when long pressed
+                    Animations.shake(on: button)
                     DiceBag.DiceBag.remove(at: index)
                     if !DiceBag.DiceBag.contains(DiceBag.diceD20){
                         d20Label.alpha = 0

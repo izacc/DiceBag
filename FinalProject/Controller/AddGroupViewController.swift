@@ -30,7 +30,8 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()        //makes our plus button round
+        super.viewDidLoad()
+        //makes our plus button round
         addPlayerButton.layer.cornerRadius = addPlayerButton.frame.height * 0.50
         addPlayerButton.clipsToBounds = true
         
@@ -42,30 +43,39 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate, UITextViewD
     //MARK: - ACTIONS
     
     //FailSafes for form completetion
+    
+    
     //checks to see the player textfield has text before adding a player
     @IBAction func AddPlayer(_ sender: Any) {
-        let ac = UIAlertController(title: "Please input player name", message: nil, preferredStyle: .alert)
-        ac.addTextField(configurationHandler: {(textField) in
-            textField.placeholder = "Player Name"
-        })
-        ac.addAction(UIAlertAction(title: "Add", style: .default, handler: {(_) in
-            self.playerName = ac.textFields![0].text!
-            
-            if(self.playerName == ""){
-                let ac = UIAlertController(title: "Player Field Empty!", message: "Please input a player name", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        if playerNames.count >= 6{
+            let ac = UIAlertController(title: "Max players for group is 6", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(ac, animated: true, completion: nil)
+        }else{
+            let ac = UIAlertController(title: "Please input player name", message: nil, preferredStyle: .alert)
+            ac.addTextField(configurationHandler: {(textField) in
+                textField.placeholder = "Player Name"
+                textField.autocapitalizationType = .words
+            })
+            ac.addAction(UIAlertAction(title: "Add", style: .default, handler: {(_) in
+                self.playerName = ac.textFields![0].text!
                 
-                self.present(ac, animated: true)
-            }else{
-                self.GenerateTextField()
-            }
-        }))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                if(self.playerName == ""){
+                    let ac = UIAlertController(title: "Player Field Empty!", message: "Please input a player name", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    
+                    self.present(ac, animated: true)
+                }else{
+                    self.GenerateTextField()
+                }
+            }))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            present(ac, animated: true, completion: nil)
         
-        present(ac, animated: true, completion: nil)
         
         
-        
+    }
     }
     
     //checks the rest of the fields have information before moving on
@@ -121,6 +131,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     //MARK: - FUNCTIONS
+    //this function is how we get our players names to pop-up after we input them
     func GenerateTextField(){
         if !didCreatePlayer1 {
             let newTextField: UITextField = UITextField(frame: CGRect(x: 20.0, y: 468.0, width: 394, height: 34))
@@ -131,6 +142,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate, UITextViewD
             newTextField.borderStyle = .roundedRect
             newTextField.backgroundColor = .white
             newTextField.text = playerName
+            newTextField.autocapitalizationType = .words
             newTextField.isEnabled = false
         
             //assigns to variable so we know the position of the text field
@@ -229,6 +241,7 @@ class AddGroupViewController: UIViewController, UITextFieldDelegate, UITextViewD
         return false
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //if enter is pressed, resign first responder(keyboard)
         if (text == "\n"){
             textView.resignFirstResponder()
         }
